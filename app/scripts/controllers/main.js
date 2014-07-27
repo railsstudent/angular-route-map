@@ -10,22 +10,34 @@
 
 var app = angular.module('routeMapController', []);
 
+/* https://github.com/mgonto/restangular#my-response-is-actually-wrapped-with-some-metadata-how-do-i-get-the-data-in-that-case */
+/* http://stackoverflow.com/questions/22012655/restangular-getlist-with-object-containing-embedded-array */
+/* http://www.ng-newsletter.com/posts/restangular.html */
+app.controller('MorningRouteCtrl', ['$scope', 'Restangular', 
+    function ($scope, Restangular) {
 
-app.controller('MainCtrl', ['$scope', function ($scope) {
-    $scope.morningRoutes = [
-      'Kowloon East (Science Park -> Kwun Tong -> Tseung Keung O',
-      'Hong Kong East',
-      'Hong Kong West'
-    ];
+      $scope.title = 'Morning Routes';
+    	Restangular.all('morning_routes.json').getList().then(
+        function(data) {
+          if (data) {
+            $scope.routes = data;
+          }
+        }, function(err) {
+          console.log(err);
+          $scope.routes = [];
+        });
+    
+    }])
+    .controller('EveningRouteCtrl', ['$scope', 'Restangular', 
+      function ($scope, Restangular) {
 
-    $scope.eveningRoutes = [ '1', '2', '3', '4'];
-  }])
-	.controller('RouteCtrl', ['$scope', function ($scope) {
+        $scope.title = 'Evening Routes';
 
-  	$scope.stuff = {
-
-  		a : 'a',
-  		b : 'b'
-  	};
-   
-  }]);;
+        Restangular.all('evening_routes.json').getList().then(
+          function(data) {
+             $scope.routes = data; 
+          }, function(err) {
+            console.log(err);
+           $scope.routes = [];   
+          });
+    }]);

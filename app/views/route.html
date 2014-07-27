@@ -1,10 +1,16 @@
-<div class="row">
-	<p>Route View</p>
-</div>
-
-<div class="row">
-	<ul>
-		<li>{{stuff.a}}</a>
-		<li>{{stuff.b}}</a>
-	</ul>
+<div class="container-fluid">
+	<h2><u>{{title}}</u></h2>
+	<p>
+		<div class="panel panel-default" ng-repeat="route in routes" >
+			<div class="panel-heading">
+				<h3 class="panel-title">{{route.name}}</h3>
+			</div>
+			<div class="panel-body">
+				{{route.description}}
+			</div>	
+			<div class="panel-footer">
+				Number of stops:  {{route.stop}}
+			</div>	
+		</div>
+	</p>
 </div>

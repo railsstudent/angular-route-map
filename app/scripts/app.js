@@ -17,7 +17,8 @@
     'ngSanitize',
     'ui.router',
     'ui.bootstrap',
-    'leaflet-directive'
+    'leaflet-directive',
+    'restangular'
   ]);
 
 
@@ -35,15 +36,43 @@
             { 
               url: '/main',
               templateUrl: 'views/main.html',
-              controller: 'MainCtrl'
+              controller: ''
             })
         .state('route', 
             { 
-              url: '/route',
+              url: '/route_map',
               templateUrl: 'views/route.html',
-              controller: 'RouteCtrl'
-            });
-        
+              controller: 'MorningRouteCtrl'
+            })
+         .state('morning_route', 
+            { 
+              url: '/morning_route',
+              templateUrl: 'views/route.html',
+              controller: 'MorningRouteCtrl'
+            })
+        .state('evening_route', 
+          { 
+            url: '/evening_route',
+            templateUrl: 'views/route.html',
+            controller: 'EveningRouteCtrl'
+          });
     }]);
+
+/* https://github.com/mgonto/restangular#my-response-is-actually-wrapped-with-some-metadata-how-do-i-get-the-data-in-that-case */
+  app.config (['RestangularProvider', function(RestangularProvider) {
+      RestangularProvider.setBaseUrl('/api/v1');
+
+      // add a response intereceptor
+      RestangularProvider.addResponseInterceptor(
+        function(data, operation, what, url, response, deferred) {
+          var extractedData = data;
+          // .. to look for getList operations
+          if (operation === 'getList') {
+            // .. and handle the data and meta data
+            extractedData = data.routes;
+          } 
+          return extractedData;
+    });
+  }]); 
 
 

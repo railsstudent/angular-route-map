@@ -1,0 +1,46 @@
+{
+	"routes":  [
+	   {
+	   	  "id" : 1,
+	      "name": "New Territory North",
+	      "description": "Tsuen Muen -> Yuen Long -> Science Park",
+	      "stop" : 3	
+	   },
+	   {
+	   	  "id" : 2,
+	      "name": "New Territory West",
+	      "description": "Tsing Yi -> Tsuen Wan -> Science Park",
+	      "stop" : 3	
+	   },
+	   {
+	      "id" : 3,
+	      "name": "Kowloon West",
+	      "description": "Sham Shui Po -> Mei Foo bridge -> Science Park",
+	      "stop" : 3	
+	   },
+	   {
+	   	  "id" : 4,
+	      "name": "Kowloon East",
+	      "description": "Tseung Keung O -> Kwun Tong -> Science Park",	
+	      "stop" : 3
+	   },
+	   {
+	   	  "id" : 5,
+	      "name": "Kowloon Tong",
+	      "description": "Ho Man Tin -> Kowloon Tong -> Science Park",	
+	      "stop" : 3
+	   },
+	   {
+	   	  "id" : 6,
+	      "name": "Hong Kong East",
+	      "description": "Tai Koo -> Chai Wan -> Science Park",
+	      "stop" : 3
+	   },
+	   {
+	   	  "id" : 7,
+	      "name": "Hong Kong West",
+	      "description": "Wan Chai -> Sai Wan -> Science Park",
+	      "stop" : 3	
+	   }
+	]
+}

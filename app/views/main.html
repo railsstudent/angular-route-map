@@ -1,13 +1,43 @@
 <div class="jumbotron">
-  <h1>We take it personally</h1>
+  <h1 class="text-center">We take it personally</h1><br/>
   <p class="lead">
-    Find shuttle bus to take you to Science Park office
+  	<img class="center-block" ng-src="images/shuttle_bus.png" alt="shuttle bus"></img>
+  	<p class="text-center">
+    	Find shuttle bus to take you to Science Park office
+	</p>
   </p>
-  <p><a class="btn btn-success" ui-sref="route">Learn More <span class="glyphicon glyphicon-arrow-right"></span></a></p>
+
+  <!-- http://stackoverflow.com/questions/22481463/div-not-center-using-class-center-block-in-bootstrap -->
+  <div class="text-center">
+  	<p class="center-block">
+	  	<button type="button" class="btn btn-success" ui-sref="route">
+	  		Route Map <span class="glyphicon glyphicon-arrow-right">
+	  	</button>
+  	</p>
+  	<!-- https://github.com/mdo/github-buttons -->
+	<iframe allowtransparency="true" frameborder="0" scrolling="no"
+		src="//platform.twitter.com/widgets/follow_button.html?screen_name=con_leung&show_count=true"
+		style="width:200px; height:20px;"></iframe>
+	<iframe src="http://ghbtns.com/github-btn.html?user=railsstudent&repo=angular-route-map&type=watch"
+		allowtransparency="true" frameborder="0" scrolling="0" width="50" height="20" ></iframe>
+	<iframe src="http://ghbtns.com/github-btn.html?user=railsstudent&type=follow"
+  		allowtransparency="true" frameborder="0" scrolling="0" width="145" height="20"></iframe>
+	<iframe src="http://ghbtns.com/github-btn.html?user=railsstudent&repo=angular-route-map&type=fork"
+	  	allowtransparency="true" frameborder="0" scrolling="0" width="50" height="20"></iframe>
+  </div>
 </div>
 
-<div class="row marketing">
-  <ul>
-    <li ng-repeat="x in eveningRoutes">{{x}}</i>
-  </ul>
-</div>
+ <div class="container-fluid">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Morning Shuttle Bus Arrangement</h2>
+          <p class="text-justify">Located along Tolo Harbour, the options of public transit to Hong Kong Science Park are very limited. Several MTR and bus transfers must be made in order to arrive to the venue.  Furthermore, the public transit time can exceed an hour for staff who lives far from the office. To reduce travelling time and save transportation expense, staff can take morning shuttle buses to work. Shuttle bus services cover Hong Kong East/West, Kowloon East/West, New Territory South/North and Kowloon Tong; therefore, staff living in these districts should leverage the resources to come to office on time.</p>
+          <p><button type="button" class="btn btn-default" ui-sref="morning_route">View routes <span class="glyphicon glyphicon-arrow-right"></button></p>
+        </div>
+        <div class="col-md-6">
+          <h2>Evening Shuttle Bus Arrangement</h2>
+          <p class="text-justify">Shuttle buses depart from Science Park office at 6 PM sharp and take expressways to travel to various stops in Hong Kong Island, Kowloon and New Territories.  Each route has two to three drop off points where staff can get off at location that is closest to their next destination. If staff stays after normal office hour, minivan service is arranged for pick up at 6:30 PM and 7:30 PM respectively. </p>
+          <p><button type="button" class="btn btn-default" ui-sref="evening_route">View routes <span class="glyphicon glyphicon-arrow-right"></button></p>
+       </div>
+      </div>

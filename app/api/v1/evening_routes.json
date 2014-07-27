@@ -1,0 +1,58 @@
+{
+	"routes": [
+	   {
+	   	  "id" : 8, 
+	      "name": "New Territory North",
+	      "description" : "Science Park -> Yuen Long -> Tsuen Mun",
+	      "stop" : 3	
+	   },
+	   {
+	      "id" : 9,
+	      "name" : "New Territory West",
+	      "description" : "Science Park -> Tsuen Wan -> Tsing Yi",
+	      "stop" : 3	
+	   },
+	   {
+	   	  "id" : 10,
+	      "name" : "Kowloon West",
+	      "description" : "Science Park -> Lai Chi Kok -> Mei Foo bridge -> Sham Shui Po",
+	      "stop" : 4	
+	   },
+	   {
+	   	  "id" : 11,
+	      "name" : "Kowloon East",
+	      "description" : "Science Park -> Kwun Tong -> Tseung Keung O",
+	      "stop" : 3	
+	   },
+	   {
+	   	  "id" : 12,
+	      "name" : "Kowloon Tong",
+	      "description" : "Science Park -> Kowloon Tong -> Ho Man Tin -> Hung Hom",
+	      "stop" : 4	
+	   },
+	   {
+	   	  "id" : 13,
+	      "name" : "Hong Kong East",
+	      "description": "Science Park -> Tai Koo -> Chai Wan ",
+	      "stop" : 3	
+	   },
+	   {
+	      "id" : 14,
+	      "name": "Hong Kong West",
+	      "description" : "Science Park -> Wan Chai -> Sai Wan", 
+	      "stop" : 3
+	   },
+	   {
+	      "id" : 15,
+	      "name" : "Special Minivan (6:30 pm)",
+	      "description" : "Science Park -> Mong Kok -> Causeway Bay",
+	      "stop" : 3	
+	   },
+	   {
+	      "id" : 16,
+	      "name" : "Special Minivan (7:30 pm)",
+	      "description" : "Science Park -> Mong Kok -> Causeway Bay",
+	      "stop" : 3	
+	   }
+	]
+}

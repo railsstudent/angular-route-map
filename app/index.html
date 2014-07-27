@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -22,10 +22,10 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="container-fluid">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a ui-sref="main">Home</a></li>
+          <li><a ui-sref="main"><span class="glyphicon glyphicon-home"></span> Home</a></li>
         </ul>
         <h3 class="text-muted">Route Map</h3>
       </div>
@@ -35,6 +35,9 @@
       <div class="footer">
         <p>Author: <span app-author></span></p>
         <p>Version: <span app-version></span></p>
+        <ul class="pull-right">
+          <li><a ui-sref="main"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        </ul>
       </div>
     </div>
 

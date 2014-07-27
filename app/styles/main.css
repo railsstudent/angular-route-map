@@ -47,3 +47,24 @@ body {
 
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+/* inline list copied from foundation 5 */
+.inline-list {
+  margin: 0 auto 0.94444rem auto;
+  margin-left: -1.22222rem;
+  margin-right: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.right {
+  float: right !important;
+}
+
+.inline-list > li {
+  list-style: none;
+  float: left;
+  margin-left: 1.22222rem;
+  display: block;
+}

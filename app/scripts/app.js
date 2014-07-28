@@ -36,7 +36,7 @@
             { 
               url: '/main',
               templateUrl: 'views/main.html',
-              controller: ''
+              controller: 'MainCtrl'
             })
          .state('morning_route', 
             { 

@@ -17,5 +17,11 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
     function ($scope, routes, title) {
 
       $scope.title = title;
-        $scope.routes = routes;  
-    }]);
+      $scope.routes = routes;  
+    }])
+  .controller('MainCtrl', ['$scope', function($scope) {
+      
+      $scope.scrollToElement(elemId) {
+        
+      }
+  }]);

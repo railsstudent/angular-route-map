@@ -19,9 +19,19 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
       $scope.title = title;
       $scope.routes = routes;  
     }])
-  .controller('MainCtrl', ['$scope', function($scope) {
+  .controller('MainCtrl', ['$scope',  '$location', '$anchorScroll',
+    function($scope, $location, $anchorScroll) {
       
-      $scope.scrollToElement(elemId) {
-        
+      $scope.scrollToElement = function(elemId) {
+          // set the location.hash to the id of
+          // the element you wish to scroll to.
+          $location.hash(elemId);
+
+          // call $anchorScroll()
+          $anchorScroll();
       }
-  }]);
+  }])
+  .controller('RouteMapCtrl', ['$scope', 
+      function($scope) {
+
+      }]);

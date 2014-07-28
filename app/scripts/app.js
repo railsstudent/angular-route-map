@@ -75,6 +75,12 @@
                     title: [ function() { return 'Evening Routes'; } ]
                 },
             controller: 'RouteCtrl'
+          })
+        .state('route_map', 
+          { 
+            url: '/route_map',
+            templateUrl: 'views/route_map.html',
+            controller: 'RouteMapCtrl'
           });
     }]);
 

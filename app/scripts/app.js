@@ -38,23 +38,43 @@
               templateUrl: 'views/main.html',
               controller: ''
             })
-        .state('route', 
-            { 
-              url: '/route_map',
-              templateUrl: 'views/route.html',
-              controller: 'MorningRouteCtrl'
-            })
          .state('morning_route', 
             { 
               url: '/morning_route',
               templateUrl: 'views/route.html',
-              controller: 'MorningRouteCtrl'
+              resolve: { 
+                  routes:  ['Restangular', function(Restangular) {
+                    return Restangular.all('morning_routes.json').getList().then(
+                      function(data) {
+                        return data;
+                      }, 
+                      function(err) {
+                        console.log(err);
+                        return [];
+                      });
+                    }],
+                    title: [ function() { return 'Moring Routes'; } ]
+                },
+              controller: 'RouteCtrl'
             })
         .state('evening_route', 
           { 
             url: '/evening_route',
             templateUrl: 'views/route.html',
-            controller: 'EveningRouteCtrl'
+            resolve: { 
+                  routes:  ['Restangular', function(Restangular) {
+                    return Restangular.all('evening_routes.json').getList().then(
+                      function(data) {
+                        return data;
+                      }, 
+                      function(err) {
+                        console.log(err);
+                        return [];
+                      });
+                    }],
+                    title: [ function() { return 'Evening Routes'; } ]
+                },
+            controller: 'RouteCtrl'
           });
     }]);
 

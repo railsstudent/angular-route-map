@@ -13,7 +13,15 @@
 			    </tr>
 			    <tr ng-repeat="route in routes">
 			    	<td>{{$index+1}}.</td><td>{{route.name}}</td>
-			    	<td>{{route.description}}</td><td>{{route.stop}}</td>
+			    	<td>
+			    		{{route.description}}
+			    		<ul class="hide_bullet">
+			    			<li ng-repeat="name in route.stop_name">
+			    				{{$index + 1}}. {{name}}
+			    			</li>
+			    		</ul>
+			    	</td>
+			    	<td>{{route.stop}}</td>
 			    </tr>
 			  </table>	
 		</div>

@@ -4,55 +4,102 @@
 	   	  "id" : 8, 
 	      "name": "New Territory North",
 	      "description" : "Science Park -> Yuen Long -> Tsuen Mun",
-	      "stop" : 3	
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"10 Science Park W Ave",			
+	      	"Yuen Long Plaza",
+	      	"Siu Hong MTR Station (West Rail)"
+	      ]	
 	   },
 	   {
 	      "id" : 9,
 	      "name" : "New Territory West",
 	      "description" : "Science Park -> Tsuen Wan -> Tsing Yi",
-	      "stop" : 3	
+	      "stop" : 3,
+	      "stop_name" : [
+			"10 Science Park W Ave",
+			"Tsuen Wan Station",
+	      	"Tsing Yi MTR Station"	
+	      ]	
 	   },
 	   {
 	   	  "id" : 10,
 	      "name" : "Kowloon West",
 	      "description" : "Science Park -> Lai Chi Kok -> Mei Foo bridge -> Sham Shui Po",
-	      "stop" : 4	
+	      "stop" : 4,
+	      "stop_name" : [
+			"10 Science Park W Ave",
+			"9 Sham Shing Road",
+			"2 Mei Lai Road",
+	      	"30 Kweilin Street, Kweilin Mansion"	      	
+	      ]	
 	   },
 	   {
 	   	  "id" : 11,
 	      "name" : "Kowloon East",
-	      "description" : "Science Park -> Kwun Tong -> Tseung Keung O",
-	      "stop" : 3	
+	      "description" : "Science Park -> Kwun Tong -> Tseung Kwan O",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"10 Science Park W Ave",
+	      	"Kwun Tong MTR Station",
+		    "Hang Hau MTR Station"
+	      ]	
 	   },
 	   {
 	   	  "id" : 12,
 	      "name" : "Kowloon Tong",
 	      "description" : "Science Park -> Kowloon Tong -> Ho Man Tin -> Hung Hom",
-	      "stop" : 4	
+	      "stop" : 4,
+	      "stop_name" : [
+	      	"10 Science Park W Ave",
+	      	"To Fuk Road",
+	      	"Ho Man Tin Street",
+	      	"Hung Lai Road"
+	      ]	
 	   },
 	   {
 	   	  "id" : 13,
 	      "name" : "Hong Kong East",
 	      "description": "Science Park -> Tai Koo -> Chai Wan ",
-	      "stop" : 3	
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"10 Science Park W Ave",
+	      	"Tai Koo Shing Road",
+	      	"Chai Wan Road"
+	      ]	
 	   },
 	   {
 	      "id" : 14,
 	      "name": "Hong Kong West",
 	      "description" : "Science Park -> Wan Chai -> Sai Wan", 
-	      "stop" : 3
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"10 Science Park W Ave",
+			"Hennessy Road",
+	      	"Des Voeux Road West"
+	      ]
 	   },
 	   {
 	      "id" : 15,
 	      "name" : "Special Minivan (6:30 pm)",
 	      "description" : "Science Park -> Mong Kok -> Causeway Bay",
-	      "stop" : 3	
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"10 Science Park W Ave",
+	      	"Prince Edward Road",
+	      	"133 King's Road"
+	      ]	
 	   },
 	   {
 	      "id" : 16,
 	      "name" : "Special Minivan (7:30 pm)",
 	      "description" : "Science Park -> Mong Kok -> Causeway Bay",
-	      "stop" : 3	
+	      "stop" : 3,
+	      "stop_name" : [
+			"10 Science Park W Ave",
+	      	"Prince Edward Road",
+	      	"133 King's Road"
+	      ]	
 	   }
 	]
 }

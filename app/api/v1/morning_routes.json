@@ -3,44 +3,79 @@
 	   {
 	   	  "id" : 1,
 	      "name": "New Territory North",
-	      "description": "Tsuen Muen -> Yuen Long -> Science Park",
-	      "stop" : 3	
+	      "description": "Tsuen Mun -> Yuen Long -> Science Park",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"Siu Hong MTR Station (West Rail)",
+	      	"Yuen Long Plaza",
+	      	"10 Science Park W Ave"
+	      ]	
 	   },
 	   {
 	   	  "id" : 2,
 	      "name": "New Territory West",
 	      "description": "Tsing Yi -> Tsuen Wan -> Science Park",
-	      "stop" : 3	
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"Tsing Yi MTR Station",
+	      	"Tsuen Wan Station",
+	      	"10 Science Park W Ave"
+	      ]	
 	   },
 	   {
 	      "id" : 3,
 	      "name": "Kowloon West",
 	      "description": "Sham Shui Po -> Mei Foo Sun Chuen bridge -> Science Park",
-	      "stop" : 3	
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"30 Kweilin Street, Kweilin Mansion",
+	      	"2 Mei Lai Road",
+	      	"10 Science Park W Ave"
+	      ]	
 	   },
 	   {
 	   	  "id" : 4,
 	      "name": "Kowloon East",
-	      "description": "Tseung Keung O -> Kwun Tong -> Science Park",	
-	      "stop" : 3
+	      "description": "Tseung Kwan O -> Kwun Tong -> Science Park",	
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"Hang Hau MTR Station",
+	      	"Kwun Tong MTR Station",
+	      	"10 Science Park W Ave"
+	      ]
 	   },
 	   {
 	   	  "id" : 5,
 	      "name": "Kowloon Tong",
 	      "description": "Ho Man Tin -> Kowloon Tong -> Science Park",	
-	      "stop" : 3
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"Ho Man Tin Street",
+	      	"To Fuk Road",
+	      	"10 Science Park W Ave"
+	      ]
 	   },
 	   {
 	   	  "id" : 6,
 	      "name": "Hong Kong East",
 	      "description": "Tai Koo -> Chai Wan -> Science Park",
-	      "stop" : 3
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"Tai Koo Shing Road",
+	      	"Chai Wan Road",
+	      	"10 Science Park W Ave"
+	      ]
 	   },
 	   {
 	   	  "id" : 7,
 	      "name": "Hong Kong West",
 	      "description": "Wan Chai -> Sai Wan -> Science Park",
-	      "stop" : 3	
+	      "stop" : 3,
+	      "stop_name" : [
+	      	"Hennessy Road",
+	      	"Des Voeux Road West",
+	      	"10 Science Park W Ave"
+	      ]	
 	   }
 	]
 }

@@ -29,9 +29,12 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
 
           // call $anchorScroll()
           $anchorScroll();
-      }
+      };
   }])
   .controller('RouteMapCtrl', ['$scope', 
       function($scope) {
 
+          $scope.drawRoute =  function(id) {
+
+          };
       }]);

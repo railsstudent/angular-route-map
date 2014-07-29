@@ -9,8 +9,5 @@
  */
 var app = angular.module('routeMapServices', []);
 app
-  .value('version', '0.1')
-  .value('author', 'Connie Leung')
-  .service('Busrouteservices', function Busrouteservices() {
-    // AngularJS will instantiate a singleton by calling "new" on this function
-  });
+  .value('version', '0.0.1')
+  .value('author', 'Connie Leung');

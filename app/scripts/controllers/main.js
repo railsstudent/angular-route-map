@@ -18,6 +18,18 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
 
       $scope.title = title;
       $scope.routes = routes;  
+
+      $scope.showButton = [];
+      _(routes.length).times(function(n) { $scope.showButton.push( { text: 'Show', collapse: true } ); });
+
+      $scope.setShowButtonText = function(rowIdx) {
+        if (_.isEqual($scope.showButton[rowIdx].text, 'Show')) {
+           $scope.showButton[rowIdx].text = 'Hide';
+        } else {
+            $scope.showButton[rowIdx].text = 'Show';
+        }
+        $scope.showButton[rowIdx].collapse = !$scope.showButton[rowIdx].collapse;
+      };  
     }])
   .controller('MainCtrl', ['$scope',  '$location', '$anchorScroll',
     function($scope, $location, $anchorScroll) {
@@ -34,7 +46,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
   .controller('RouteMapCtrl', ['$scope', 
       function($scope) {
 
-          $scope.drawRoute =  function(id) {
+        //  $scope.drawRoute =  function(id) {
 
-          };
+//          };
       }]);

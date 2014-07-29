@@ -14,9 +14,10 @@
 			    <tr ng-repeat="route in routes">
 			    	<td>{{$index+1}}.</td><td>{{route.name}}</td>
 			    	<td>
-			    		{{route.description}}
-			    		<ul class="hide_bullet">
-			    			<li ng-repeat="name in route.stop_name">
+			    		{{route.description}}  
+			    		<a href ng-click="setShowButtonText($index)">{{  showButton[$index].text   }}</a>
+			    		<ul class='hide_bullet' ng-show="!showButton[$index].collapse">
+			    			<li ng-repeat='name in route.stop_name'>
 			    				{{$index + 1}}. {{name}}
 			    			</li>
 			    		</ul>

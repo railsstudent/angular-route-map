@@ -76,3 +76,5 @@ ul.hide_bullet
    list-style-type: none;
    padding-left: 2%;
 }
+
+.angular-google-map-container { height: 600px; }

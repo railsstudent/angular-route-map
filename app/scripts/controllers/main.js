@@ -49,4 +49,13 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
         //  $scope.drawRoute =  function(id) {
 
 //          };
+
+        $scope.map = {
+            center: {
+                latitude: 22.3910, 
+                longitude: 114.0878
+            },
+            zoom: 8
+        };
+
       }]);

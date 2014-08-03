@@ -17,9 +17,9 @@
 	      "description": "Tsing Yi -> Tsuen Wan -> Science Park",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"Tsing Yi MTR Station",
-	      	"Tsuen Wan Station",
-	      	"10 Science Park W Ave"
+	      	"Tsing Yi MTR Station [7:50 AM]",
+	      	"Tsuen Wan Station [8:00 AM]",
+	      	"10 Science Park W Ave [8:20 AM]"
 	      ]	
 	   },
 	   {
@@ -28,9 +28,9 @@
 	      "description": "Sham Shui Po -> Mei Foo Sun Chuen bridge -> Science Park",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"30 Kweilin Street, Kweilin Mansion",
-	      	"2 Mei Lai Road",
-	      	"10 Science Park W Ave"
+	      	"30 Kweilin Street, Kweilin Mansion [7:55 AM]",
+	      	"2 Mei Lai Road [8:05 AM]",
+	      	"10 Science Park W Ave [8:25 AM]"
 	      ]	
 	   },
 	   {
@@ -51,7 +51,7 @@
 	      "stop" : 3,
 	      "stop_name" : [
 	      	"Ho Man Tin Street",
-	      	"To Fuk Road",
+	      	"To Fuk Road [8:10 AM]",
 	      	"10 Science Park W Ave"
 	      ]
 	   },

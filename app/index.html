@@ -9,7 +9,6 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/leaflet-dist/leaflet.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -25,7 +24,14 @@
     <div class="container-fluid">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a ui-sref="main"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li><a ui-sref="main"><i class="fa fa-home"></i> Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Routes <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a ui-sref="morning_route"><i class="fa fa-sun-o"></i> Day</a></li>
+                <li><a ui-sref="evening_route"><i class="fa fa-star"></i> Night</a></li>
+            </ul>
+          </li>
         </ul>
         <h3 class="text-muted">Route Map</h3>
       </div>
@@ -34,7 +40,10 @@
 
       <div class="footer">
         <ul class="inline-list right">
-          <li><a ui-sref="main"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li><a ui-sref="main"><i class="fa fa-home"></i> Home</a></li>
+          <li><a ui-sref="morning_route"><i class="fa fa-sun-o"></i> Day Routes</a></li>
+          <li><a ui-sref="evening_route"><i class="fa fa-star"></i> Night Routes</a>
+          </li>
         </ul>
         <p>Author: <span app-author></span></p>
         <p>Version: <span app-version></span></p>
@@ -46,6 +55,8 @@
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -55,13 +66,10 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/angular-underscore/angular-underscore.js"></script>
-    <script src="bower_components/leaflet-dist/leaflet.js"></script>
-    <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/lodash/dist/lodash.compat.js"></script>
     <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -73,5 +81,6 @@
         <!-- endbuild -->
 
         <script src="scripts/vendor/ie10-viewport-bug-workaround.js"></script>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 </body>
 </html>

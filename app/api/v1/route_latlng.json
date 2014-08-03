@@ -1,0 +1,15 @@
+{
+	"route_latlngs" : [
+		{
+			"id" : 1, 
+			"route_id" : 1,
+			latlng : [ { lat: 1, lng: 2} ] 
+		}, 
+		{
+			"id" : 1, 
+			"route_id" : 1,
+			latlng : [ { lat: 1, lng: 2} ] 
+		}
+
+	]
+}

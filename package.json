@@ -4,6 +4,7 @@
   "dependencies": {
     "express": "^4.7.1",
     "grunt": "^0.4.5",
+    "leaflet-routing-machine": "^0.2.1",
     "logfmt": "^1.1.2"
   },
   "devDependencies": {

@@ -17,8 +17,8 @@
     'ngSanitize',
     'ui.router',
     'ui.bootstrap',
-    'leaflet-directive',
-    'restangular'
+    'restangular',
+    'google-maps'
   ]);
 
 
@@ -53,7 +53,7 @@
                         return [];
                       });
                     }],
-                    title: [ function() { return 'Moring Routes'; } ]
+                    title: [ function() { return 'Day Routes'; } ]
                 },
               controller: 'RouteCtrl'
             })
@@ -72,7 +72,7 @@
                         return [];
                       });
                     }],
-                    title: [ function() { return 'Evening Routes'; } ]
+                    title: [ function() { return 'Night Routes'; } ]
                 },
             controller: 'RouteCtrl'
           })

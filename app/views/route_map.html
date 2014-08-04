@@ -1,3 +1,27 @@
-
-
+<div class="container-fluid">
+	<form role="form" class="form-inline">
+  		<div class="form-group">
+  			<div class="row">&nbsp;</div>
+			<label for="selectShift">Select Shift: </label>
+			<select class="form-control nullable" 
+				ng-model="routeDropDownOptions.selected_shift"
+				ng-options="shift for shift in routeDropDownOptions.shifts"
+				ng-change="chooseShift(routeDropDownOptions.selected_shift)">
+				<option value=""></option>
+			</select>
+			<label for="selectRoute">Select Route: </label>
+			<select class="form-control" 
+				ng-disabled="routeDropDownOptions.disabled"
+				ng-model="routeDropDownOptions.selected_route">
+				<option ng-repeat="route in routeDropDownOptions.routeArray" value='{{route.id}}'>{{route.name}}</option>
+			</select>
+  			<div class="row">&nbsp;</div>
+		</div>
+	</form>
+	<div class="row">
+		<google-map center="map.center" zoom="map.zoom"></google-map>
+	</div>	
+</div>
+<!--
 <google-map center="map.center" zoom="map.zoom"></google-map>
+-->

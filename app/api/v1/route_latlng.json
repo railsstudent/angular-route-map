@@ -1,15 +1,40 @@
 {
-	"route_latlngs" : [
+	"latlngs" : [
 		{
 			"id" : 1, 
-			"route_id" : 1,
-			latlng : [ { lat: 1, lng: 2} ] 
+			"shift" : "Day",
+			"name" : "New Territory North",
+			"latlng" : [ { "lat": 1, "lng": 2} ] 
 		}, 
 		{
-			"id" : 1, 
-			"route_id" : 1,
-			latlng : [ { lat: 1, lng: 2} ] 
+			"id" : 2, 
+			"shift" : "Day",
+			"name" : "New Territory West",
+			"latlng" : [ { "lat": 1, "lng": 2} ] 
+		},
+		{
+	      "id" : 15,
+	      "name" : "Special Minivan (6:30 pm)",
+	      "shift" : "Night",
+	      "latlng" : [ { "lat": 1, "lng": 2} ] 	
+	   },
+	   {
+	      "id" : 16,
+	      "name" : "Special Minivan (7:30 pm)",
+	      "shift" : "Night",
+	      "latlng" : [ { "lat": 1, "lng": 2} ] 
+	   },
+	   {
+			"id" : 3, 
+			"shift" : "Night",
+			"name" : "New Territory North",
+			"latlng" : [ { "lat": 1, "lng": 2} ] 
+	   },
+	   {
+	      "id" : 14,
+	      "shift" : "Night",
+	      "name": "Hong Kong West",
+	      "latlng" : [ { "lat": 12, "lng": 22} ] 
 		}
-
 	]
 }

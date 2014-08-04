@@ -92,13 +92,18 @@
       RestangularProvider.addResponseInterceptor(
         function(data, operation, what, url, response, deferred) {
           var extractedData = data;
-          // .. to look for getList operations
+            // .. to look for getList operations
           if (operation === 'getList') {
-            // .. and handle the data and meta data
-            extractedData = data.routes;
-          } 
+              if (_.isEqual(what, 'evening_routes.json') || 
+                      _.isEqual(what, 'morning_routes.json')) {
+                extractedData = data.routes;
+              } else if (_.isEqual(what, 'route_latlng.json')) {
+                extractedData = data.latlngs;
+              }
+          }
           return extractedData;
     });
   }]); 
 
 
+ 

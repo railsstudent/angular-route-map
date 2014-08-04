@@ -46,13 +46,24 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
   .controller('RouteMapCtrl', ['$scope', 'RouteService', 
       function($scope, RouteService) {
 
+// https://github.com/nlaplante/angular-google-maps/blob/master/example/assets/scripts/controllers/example.js
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+        var map;
+
         $scope.map = {
             center: {
                 latitude: 22.3910, 
                 longitude: 114.0878
             },
-            zoom: 8
+            zoom: 8,
+            control: {}
         };
+
+        $scope.getMapInstance = function () {
+          alert("You have Map Instance of" + $scope.map.control.getGMap().toString());
+          return;
+        }
 
         $scope.routeDropDownOptions ={
           selected_shift: undefined,
@@ -61,8 +72,6 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
           routeArray : [],
           disabled : true
         };
-
-//        var directionsService = new google.maps.DirectionsService();
         
         var error_callback = function(err) {
           console.log(err);

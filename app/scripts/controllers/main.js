@@ -68,13 +68,15 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
           selected_route : undefined,
           shifts : RouteService.getShifts(),
           routeArray : [],
-          disabled : true
+          disabled : true,
+          selected_latlngs : []
         };
         
         var error_callback = function(err) {
           console.log(err);
           $scope.routeDropDownOptions.routeArray = [];
           $scope.routeDropDownOptions.selected_route = undefined;
+          $scope.routeDropDownOptions.selected_latlngs = [];
           $scope.routeDropDownOptions.disabled = true;
         };
 
@@ -87,7 +89,12 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
             } 
             if (_.isEmpty(filteredResult) === false) {
               $scope.routeDropDownOptions.selected_route = filteredResult[0].id;
-              $scope.routeDropDownOptions.disabled = false;
+
+              var selected_route = _.find(filteredResult, function(route) {
+                return route.id ==  filteredResult[0].id;
+              });
+              $scope.routeDropDownOptions.selected_latlngs = selected_route.stop_name;
+             $scope.routeDropDownOptions.disabled = false;
             }
             $scope.routeDropDownOptions.routeArray = filteredResult;
           }, error_callback);
@@ -102,7 +109,12 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
         };
 
         $scope.chooseRoute = function _chooseRoute(route_id) {
-          
+          var tmp_routes = $scope.routeDropDownOptions.routeArray;
+          var selected_route = 
+            _.find(tmp_routes, function(route) {
+                return route.id ==  route_id;
+            });
+          $scope.routeDropDownOptions.selected_latlngs = selected_route.stop_name;  
         }
 
         $scope.chooseShift = function _chooseShift(val) {
@@ -115,6 +127,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
               $scope.routeDropDownOptions.routeArray = [];
               $scope.routeDropDownOptions.selected_route = undefined;
               $scope.routeDropDownOptions.disabled = true;
+              $scope.routeDropDownOptions.selected_latlngs = [];
               directionsDisplay.setMap(null);
             }
           };

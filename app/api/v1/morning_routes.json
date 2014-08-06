@@ -47,12 +47,12 @@
 	      "stop" : 3,
 	      "stop_name" : [
 	      	{ "name" : "30 Kweilin Street, Kweilin Mansion [7:55 AM]",
-	      		"lat" : 22.425872, 
-				"lng" : 114.210443
+	      		"lat" : 22.328251,   
+				"lng" : 114.159560
 	      	 },
 	      	{ "name" : "2 Mei Lai Road [8:05 AM]",
-	      		"lat" : 22.425872, 
-				"lng" : 114.210443
+	      		"lat" : 22.337463, 
+				"lng" : 114.141016   
 	      	 },
 	      	{ "name" : "10 Science Park W Ave [8:25 AM]",
 	      		"lat" : 22.425872, 
@@ -67,12 +67,12 @@
 	      "stop" : 3,
 	      "stop_name" : [
 	      	{ "name" : "Hang Hau MTR Station", 
-				"lat" : 22.425872, 
-				"lng" : 114.210443
+				"lat" : 22.315388, 
+				"lng" : 114.263899
 	      	},
-	      	{ "name" : "Kwun Tong MTR Station",
-				"lat" : 22.425872, 
-				"lng" : 114.210443
+	      	{ "name" : "Exit C1, Kwun Tong MTR Station",
+				"lat" : 22.312437, 
+				"lng" : 114.226743 
 	      	 },
 	      	{ "name" : "10 Science Park W Ave",
 				"lat" : 22.425872, 

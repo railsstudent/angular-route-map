@@ -16,6 +16,7 @@
 				ng-change="chooseRoute(routeDropDownOptions.selected_route)">
 				<option ng-repeat="route in routeDropDownOptions.routeArray" value='{{route.id}}'>{{route.name}}</option>
 			</select>
+  			<div class="row">{{routeDropDownOptions.selected_latlngs}}</div>
   			<div class="row">&nbsp;</div>
 		</div>
 	</form>

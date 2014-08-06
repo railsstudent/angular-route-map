@@ -97,8 +97,6 @@
               if (_.isEqual(what, 'evening_routes.json') || 
                       _.isEqual(what, 'morning_routes.json')) {
                 extractedData = data.routes;
-              } else if (_.isEqual(what, 'route_latlng.json')) {
-                extractedData = data.latlngs;
               }
           }
           return extractedData;

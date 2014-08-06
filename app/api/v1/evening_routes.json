@@ -6,9 +6,18 @@
 	      "description" : "Science Park -> Yuen Long -> Tsuen Mun",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"10 Science Park W Ave",			
-	      	"Yuen Long Plaza",
-	      	"Siu Hong MTR Station (West Rail)"
+	      	{ "name": "10 Science Park W Ave" 
+              , "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},			
+	      	{ "name" : "Yuen Long Plaza"
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	 },
+	      	{ "name" : "Siu Hong MTR Station (West Rail)" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}
 	      ]	
 	   },
 	   {
@@ -17,9 +26,18 @@
 	      "description" : "Science Park -> Tsuen Wan -> Tsing Yi",
 	      "stop" : 3,
 	      "stop_name" : [
-			"10 Science Park W Ave",
-			"Tsuen Wan Station",
-	      	"Tsing Yi MTR Station"	
+			{ "name" : "10 Science Park W Ave" 
+				, "lat" : 22.425872 
+				, "lng" : 114.210443
+			},
+			{ "name" : "Tsuen Wan Station" 
+				, "lat" : 22.425872 
+				, "lng" : 114.210443
+			},
+	      	{ "name" : "Tsing Yi MTR Station" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}	
 	      ]	
 	   },
 	   {
@@ -28,10 +46,22 @@
 	      "description" : "Science Park -> Lai Chi Kok -> Mei Foo bridge -> Sham Shui Po",
 	      "stop" : 4,
 	      "stop_name" : [
-			"10 Science Park W Ave",
-			"9 Sham Shing Road",
-			"2 Mei Lai Road",
-	      	"30 Kweilin Street, Kweilin Mansion"	      	
+			{ "name" : "10 Science Park W Ave"
+				, "lat" : 22.425872 
+				, "lng" : 114.210443 
+			},
+			{ "name" : "9 Sham Shing Road"
+				, "lat" : 22.425872 
+				, "lng" : 114.210443 
+			},
+			{ "name" : "2 Mei Lai Road"
+				, "lat" : 22.425872 
+				, "lng" : 114.210443 
+			},
+	      	{ "name" : "30 Kweilin Street, Kweilin Mansion" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}	      	
 	      ]	
 	   },
 	   {
@@ -40,9 +70,18 @@
 	      "description" : "Science Park -> Kwun Tong -> Tseung Kwan O",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"10 Science Park W Ave",
-	      	"Kwun Tong MTR Station",
-		    "Hang Hau MTR Station"
+	      	{ "name" : "10 Science Park W Ave" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "Kwun Tong MTR Station" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+		    { "name" : "Hang Hau MTR Station" 
+		    	, "lat" : 22.425872 
+				, "lng" : 114.210443
+			}
 	      ]	
 	   },
 	   {
@@ -51,10 +90,22 @@
 	      "description" : "Science Park -> Kowloon Tong -> Ho Man Tin -> Hung Hom",
 	      "stop" : 4,
 	      "stop_name" : [
-	      	"10 Science Park W Ave",
-	      	"To Fuk Road",
-	      	"Ho Man Tin Street",
-	      	"Hung Lai Road"
+	      	{ "name" : "10 Science Park W Ave" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "6 To Fuk Road" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "33 Ho Man Tin Street" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "Hung Lai Road"
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	 }
 	      ]	
 	   },
 	   {
@@ -63,9 +114,18 @@
 	      "description": "Science Park -> Tai Koo -> Chai Wan ",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"10 Science Park W Ave",
-	      	"Tai Koo Shing Road",
-	      	"Chai Wan Road"
+	      	{ "name" : "10 Science Park W Ave"
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	 },
+	      	{ "name" : "Tai Koo Shing Road" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "Chai Wan Road" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}
 	      ]	
 	   },
 	   {
@@ -74,9 +134,18 @@
 	      "description" : "Science Park -> Wan Chai -> Sai Wan", 
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"10 Science Park W Ave",
-			"Hennessy Road",
-	      	"Des Voeux Road West"
+	      	{ "name" : "10 Science Park W Ave"
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	 },
+			{ "name" : "Hennessy Road" 
+				, "lat" : 22.425872 
+				, "lng" : 114.210443
+			},
+	      	{ "name" : "Des Voeux Road West"
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	 }
 	      ]
 	   },
 	   {
@@ -85,9 +154,18 @@
 	      "description" : "Science Park -> Mong Kok -> Causeway Bay",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"10 Science Park W Ave",
-	      	"Prince Edward Road",
-	      	"133 King's Road"
+	      	{ "name" : "10 Science Park W Ave"
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "Prince Edward Road" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "133 King's Road" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}
 	      ]	
 	   },
 	   {
@@ -96,9 +174,18 @@
 	      "description" : "Science Park -> Mong Kok -> Causeway Bay",
 	      "stop" : 3,
 	      "stop_name" : [
-			"10 Science Park W Ave",
-	      	"Prince Edward Road",
-	      	"133 King's Road"
+			{ "name" : "10 Science Park W Ave"
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "Prince Edward Road" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "133 King's Road" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}
 	      ]	
 	   }
 	]

@@ -6,9 +6,18 @@
 	      "description": "Tsuen Mun -> Yuen Long -> Science Park",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"Siu Hong MTR Station (West Rail)",
-	      	"Yuen Long Plaza",
-	      	"10 Science Park W Ave"
+	      	{ "name" : "Siu Hong MTR Station (West Rail)",
+	      	  "lat": 22.411321, 
+	      	  "lng" : 113.978761
+	      	 },
+	      	{ "name" : "Yuen Long Plaza",
+ 			  "lat" : 22.445138, 
+ 			  "lng" : 114.024099
+	      	 },
+	      	{ "name" : "10 Science Park W Ave" 
+			  ,"lat" : 22.425872 
+			  ,"lng" : 114.210443
+	        }
 	      ]	
 	   },
 	   {
@@ -17,9 +26,18 @@
 	      "description": "Tsing Yi -> Tsuen Wan -> Science Park",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"Tsing Yi MTR Station [7:50 AM]",
-	      	"Tsuen Wan Station [8:00 AM]",
-	      	"10 Science Park W Ave [8:20 AM]"
+	      	{ "name" : "Tsing Yi MTR Station [7:50 AM]",
+	      		"lat": 22.359888, 
+	      		"lng" : 114.106665
+	      	 },
+	      	{ "name" : "Tsuen Wan Station [8:00 AM]",
+				"lat" : 22.373611, 
+				"lng" : 114.117773
+	      	 },
+	      	{ "name" : "10 Science Park W Ave [8:20 AM]",
+				"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 }
 	      ]	
 	   },
 	   {
@@ -28,9 +46,18 @@
 	      "description": "Sham Shui Po -> Mei Foo Sun Chuen bridge -> Science Park",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"30 Kweilin Street, Kweilin Mansion [7:55 AM]",
-	      	"2 Mei Lai Road [8:05 AM]",
-	      	"10 Science Park W Ave [8:25 AM]"
+	      	{ "name" : "30 Kweilin Street, Kweilin Mansion [7:55 AM]",
+	      		"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 },
+	      	{ "name" : "2 Mei Lai Road [8:05 AM]",
+	      		"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 },
+	      	{ "name" : "10 Science Park W Ave [8:25 AM]",
+	      		"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 }
 	      ]	
 	   },
 	   {
@@ -39,9 +66,18 @@
 	      "description": "Tseung Kwan O -> Kwun Tong -> Science Park",	
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"Hang Hau MTR Station",
-	      	"Kwun Tong MTR Station",
-	      	"10 Science Park W Ave"
+	      	{ "name" : "Hang Hau MTR Station", 
+				"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	},
+	      	{ "name" : "Kwun Tong MTR Station",
+				"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 },
+	      	{ "name" : "10 Science Park W Ave",
+				"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 }
 	      ]
 	   },
 	   {
@@ -50,9 +86,18 @@
 	      "description": "Ho Man Tin -> Kowloon Tong -> Science Park",	
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"Ho Man Tin Street",
-	      	"To Fuk Road [8:10 AM]",
-	      	"10 Science Park W Ave"
+	      	{ "name" : "23 Ho Man Tin Street"
+	  			, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	 },
+	      	{ "name" : "5 To Fuk Road [8:10 AM]" 
+	  			, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "10 Science Park W Ave",
+				"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 }
 	      ]
 	   },
 	   {
@@ -61,9 +106,18 @@
 	      "description": "Tai Koo -> Chai Wan -> Science Park",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"Tai Koo Shing Road",
-	      	"Chai Wan Road",
-	      	"10 Science Park W Ave"
+	      	{ "name" : "Tai Koo Shing Road" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "Chai Wan Road" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "10 Science Park W Ave" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}
 	      ]
 	   },
 	   {
@@ -72,9 +126,18 @@
 	      "description": "Wan Chai -> Sai Wan -> Science Park",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	"Hennessy Road",
-	      	"Des Voeux Road West",
-	      	"10 Science Park W Ave"
+	      	{ "name" : "Hennessy Road" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "Des Voeux Road West" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	},
+	      	{ "name" : "10 Science Park W Ave" 
+				, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}
 	      ]	
 	   }
 	]

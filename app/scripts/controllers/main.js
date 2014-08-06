@@ -47,9 +47,8 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
       function($scope, RouteService) {
 
 // https://github.com/nlaplante/angular-google-maps/blob/master/example/assets/scripts/controllers/example.js
-        var directionsDisplay;
         var directionsService = new google.maps.DirectionsService();
-        var map;
+        var directionsDisplay = new google.maps.DirectionsRenderer();
 
         $scope.map = {
             center: {
@@ -61,8 +60,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
         };
 
         $scope.getMapInstance = function () {
-          alert("You have Map Instance of" + $scope.map.control.getGMap().toString());
-          return;
+          return $scope.map.control.getGMap();
         }
 
         $scope.routeDropDownOptions ={
@@ -80,34 +78,44 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
           $scope.routeDropDownOptions.disabled = true;
         };
 
-        var getRouteInfo = function(promise, filter_predicate) {
+        var getRouteInfo = function(promise) {
           promise.then (function (arrLatLng) {
-            var filteredResult = _.filter(arrLatLng, filter_predicate);
+            var filteredResult = arrLatLng;
             if (_.isNull(filteredResult)) {
               filteredResult = [];
               $scope.routeDropDownOptions.disabled = true;
             } 
-            $scope.routeDropDownOptions.routeArray = filteredResult;
             if (_.isEmpty(filteredResult) === false) {
               $scope.routeDropDownOptions.selected_route = filteredResult[0].id;
               $scope.routeDropDownOptions.disabled = false;
             }
+            $scope.routeDropDownOptions.routeArray = filteredResult;
           }, error_callback);
         };
+
+        var calRoute = function() {
+          // delete route
+          directionsDisplay.setMap(null);
+          if ($scope.routeDropDownOptions.selected_route) {
+
+          }
+        };
+
+        $scope.chooseRoute = function _chooseRoute(route_id) {
+          
+        }
 
         $scope.chooseShift = function _chooseShift(val) {
 
             if (_.isEqual('Day', val)) {
-              getRouteInfo(RouteService.getDayLatLngs(), 
-                  function (data) { return _.isEqual(data.shift,'Day'); });
-
+              getRouteInfo(RouteService.getDayLatLngs());
             } else if (_.isEqual('Night', val)) {
-              getRouteInfo(RouteService.getNightLatLngs(), 
-                  function (data) { return _.isEqual(data.shift,'Night'); });
+              getRouteInfo(RouteService.getNightLatLngs());
             } else {
               $scope.routeDropDownOptions.routeArray = [];
               $scope.routeDropDownOptions.selected_route = undefined;
               $scope.routeDropDownOptions.disabled = true;
+              directionsDisplay.setMap(null);
             }
           };
       }]);

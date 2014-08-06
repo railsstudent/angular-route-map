@@ -12,7 +12,8 @@
 			<label for="selectRoute">Select Route: </label>
 			<select class="form-control" 
 				ng-disabled="routeDropDownOptions.disabled"
-				ng-model="routeDropDownOptions.selected_route">
+				ng-model="routeDropDownOptions.selected_route"
+				ng-change="chooseRoute(routeDropDownOptions.selected_route)">
 				<option ng-repeat="route in routeDropDownOptions.routeArray" value='{{route.id}}'>{{route.name}}</option>
 			</select>
   			<div class="row">&nbsp;</div>
@@ -25,6 +26,3 @@
 		<google-map center="map.center" zoom="map.zoom" control="map.control"></google-map>
 	</div>	
 </div>
-<!--
-<google-map center="map.center" zoom="map.zoom"></google-map>
--->

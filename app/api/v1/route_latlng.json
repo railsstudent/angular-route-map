@@ -4,15 +4,21 @@
 			"id" : 1, 
 			"shift" : "Day",
 			"name" : "New Territory North",
-			"latlng" : [ { "lat": 1, "lng": 2} ] 
+			"latlng" : [ { "lat": 22.411321, "lng" : 113.978761 }, 
+						{ "lat" : 22.445138, "lng" : 114.024099 },
+						{ "lat" : 22.425872, "lng" : 114.210443 }
+			 		] 
 		}, 
 		{
 			"id" : 2, 
 			"shift" : "Day",
 			"name" : "New Territory West",
-			"latlng" : [ { "lat": 1, "lng": 2} ] 
+			"latlng" : [ { "lat": 22.359888, "lng" : 114.106665 }, 
+						{ "lat" : 22.373611, "lng" : 114.117773 },
+						{ "lat" : 22.425872, "lng" : 114.210443 }
+			 		] 
 		},
-		{
+		{ 
 	      "id" : 15,
 	      "name" : "Special Minivan (6:30 pm)",
 	      "shift" : "Night",

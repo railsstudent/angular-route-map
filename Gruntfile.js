@@ -355,6 +355,20 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    bower: {
+      install: {
+        options: {
+          targetDir: 'bower_components',
+          layout: 'byComponent',
+          install: true,
+          verbose: false,
+          cleanTargetDir: false,
+          cleanBowerDir: false,
+          bowerOptions: {}
+        }
+      }
     }
   });
 
@@ -366,6 +380,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'bower',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -409,4 +424,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-bower-task');
 };

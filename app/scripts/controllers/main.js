@@ -20,11 +20,11 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
       $scope.routes = routes;  
 
       $scope.showButton = [];
-      _(routes.length).times(function(n) { $scope.showButton.push( { text: 'Show', collapse: true } ); });
+      _(routes.length).times(function() { $scope.showButton.push( { text: 'Show', collapse: true } ); });
 
       $scope.setShowButtonText = function(rowIdx) {
         if (_.isEqual($scope.showButton[rowIdx].text, 'Show')) {
-           $scope.showButton[rowIdx].text = 'Hide';
+           $scope.showButton[rowIdx].text = 'Collapse';
         } else {
             $scope.showButton[rowIdx].text = 'Show';
         }
@@ -46,6 +46,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
   .controller('RouteMapCtrl', ['$scope', 'RouteService', 
       function($scope, RouteService) {
 
+// https://github.com/angular-ui/angular-google-maps/blob/master/example/example.html
 // https://github.com/nlaplante/angular-google-maps/blob/master/example/assets/scripts/controllers/example.js
         var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -55,17 +56,16 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
                 latitude: 22.3910, 
                 longitude: 114.0878
             },
-            zoom: 8,
-            control: {}
+            zoom: 14,
+            control: {},
+            options: {
+              disableDefaultUI: false
+            }
         };
 
-        $scope.getMapInstance = function () {
-          return $scope.map.control.getGMap();
-        }
-
         $scope.routeDropDownOptions ={
-          selected_shift: undefined,
-          selected_route : undefined,
+          selectedShift: undefined,
+          selectedRoute : undefined,
           shifts : RouteService.getShifts(),
           routeArray : [],
           disabled : true,
@@ -75,7 +75,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
         var error_callback = function(err) {
           console.log(err);
           $scope.routeDropDownOptions.routeArray = [];
-          $scope.routeDropDownOptions.selected_route = undefined;
+          $scope.routeDropDownOptions.selectedRoute = undefined;
           $scope.routeDropDownOptions.selected_latlngs = [];
           $scope.routeDropDownOptions.disabled = true;
         };
@@ -88,13 +88,20 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
               $scope.routeDropDownOptions.disabled = true;
             } 
             if (_.isEmpty(filteredResult) === false) {
-              $scope.routeDropDownOptions.selected_route = filteredResult[0].id;
+              $scope.routeDropDownOptions.selectedRoute = filteredResult[0].id;
 
               var selected_route = _.find(filteredResult, function(route) {
-                return route.id ==  filteredResult[0].id;
+                return _.isEqual(route.id, filteredResult[0].id);
               });
-              $scope.routeDropDownOptions.selected_latlngs = selected_route.stop_name;
-             $scope.routeDropDownOptions.disabled = false;
+
+              if (_.isNull(selected_route)) {
+                $scope.routeDropDownOptions.selected_latlngs = null;
+                $scope.routeDropDownOptions.disabled = true;                
+              } else {
+                $scope.routeDropDownOptions.selected_latlngs = selected_route.stop_name;
+                $scope.routeDropDownOptions.disabled = false;
+              }
+              calRoute();
             }
             $scope.routeDropDownOptions.routeArray = filteredResult;
           }, error_callback);
@@ -103,8 +110,36 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
         var calRoute = function() {
           // delete route
           directionsDisplay.setMap(null);
-          if ($scope.routeDropDownOptions.selected_route) {
+          directionsDisplay.setMap($scope.map.control.getGMap());
 
+          if (_.isNull($scope.routeDropDownOptions.selected_latlngs) === false) {
+            var first = _.first($scope.routeDropDownOptions.selected_latlngs);
+            var last = _.last($scope.routeDropDownOptions.selected_latlngs);
+            var waypts = [];
+            var size = _.size($scope.routeDropDownOptions.selected_latlngs);
+            if (size > 2) {
+              for (var i = 1; i < size - 1; i++) {
+                  var temp = $scope.routeDropDownOptions.selected_latlngs[i];
+                  waypts.push( { 
+                                  location : new google.maps.LatLng(temp.lat, temp.lng), 
+                                   stopover : true 
+                                });
+              }
+            }
+
+            var start = new google.maps.LatLng(first.lat, first.lng);
+            var end = new google.maps.LatLng(last.lat, last.lng);
+            var request = {
+                origin:start,
+                destination:end,
+                waypoints: waypts,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            directionsService.route(request, function(response, status) {
+              if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+              }
+            });
           }
         };
 
@@ -112,10 +147,15 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
           var tmp_routes = $scope.routeDropDownOptions.routeArray;
           var selected_route = 
             _.find(tmp_routes, function(route) {
-                return route.id ==  route_id;
+                return _.isEqual(route.id, _.parseInt(route_id));
             });
-          $scope.routeDropDownOptions.selected_latlngs = selected_route.stop_name;  
-        }
+          if (_.isNull(selected_route)) {
+            $scope.routeDropDownOptions.selected_latlngs = null;
+          } else {
+            $scope.routeDropDownOptions.selected_latlngs = selected_route.stop_name;  
+            calRoute();
+          }
+        };
 
         $scope.chooseShift = function _chooseShift(val) {
 
@@ -125,7 +165,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
               getRouteInfo(RouteService.getNightLatLngs());
             } else {
               $scope.routeDropDownOptions.routeArray = [];
-              $scope.routeDropDownOptions.selected_route = undefined;
+              $scope.routeDropDownOptions.selectedRoute = undefined;
               $scope.routeDropDownOptions.disabled = true;
               $scope.routeDropDownOptions.selected_latlngs = [];
               directionsDisplay.setMap(null);

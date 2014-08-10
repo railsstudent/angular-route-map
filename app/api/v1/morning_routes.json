@@ -87,12 +87,12 @@
 	      "stop" : 3,
 	      "stop_name" : [
 	      	{ "name" : "23 Ho Man Tin Street"
-	  			, "lat" : 22.425872 
-				, "lng" : 114.210443
+	  			, "lat" : 22.315621
+				, "lng" : 114.175087
 	      	 },
 	      	{ "name" : "5 To Fuk Road [8:10 AM]" 
-	  			, "lat" : 22.425872 
-				, "lng" : 114.210443
+	  			, "lat" : 22.335513 
+				, "lng" : 114.176718
 	      	},
 	      	{ "name" : "10 Science Park W Ave",
 				"lat" : 22.425872, 
@@ -107,12 +107,12 @@
 	      "stop" : 3,
 	      "stop_name" : [
 	      	{ "name" : "Tai Koo Shing Road" 
-	      		, "lat" : 22.425872 
-				, "lng" : 114.210443
+	      		, "lat" : 22.286183 
+				, "lng" : 114.216942
 	      	},
 	      	{ "name" : "Chai Wan Road" 
-	      		, "lat" : 22.425872 
-				, "lng" : 114.210443
+	      		, "lat" : 22.270696 
+				, "lng" : 114.233604
 	      	},
 	      	{ "name" : "10 Science Park W Ave" 
 	      		, "lat" : 22.425872 
@@ -127,12 +127,12 @@
 	      "stop" : 3,
 	      "stop_name" : [
 	      	{ "name" : "Hennessy Road" 
-	      		, "lat" : 22.425872 
-				, "lng" : 114.210443
+	      		, "lat" : 22.278052 
+				, "lng" : 114.176854
 	      	},
-	      	{ "name" : "Des Voeux Road West" 
-	      		, "lat" : 22.425872 
-				, "lng" : 114.210443
+	      	{ "name" : "22 Des Voeux Road West" 
+	      		, "lat" : 22.287728 
+				, "lng" : 114.147504
 	      	},
 	      	{ "name" : "10 Science Park W Ave" 
 				, "lat" : 22.425872 

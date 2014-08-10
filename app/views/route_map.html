@@ -2,18 +2,18 @@
 	<form role="form" class="form-inline">
   		<div class="form-group">
   			<div class="row">&nbsp;</div>
-			<label for="selectShift">Select Shift: </label>
+			<label for="selectShift">Select Shift:&nbsp;&nbsp;&nbsp;</label>
 			<select class="form-control nullable" 
-				ng-model="routeDropDownOptions.selected_shift"
+				ng-model="routeDropDownOptions.selectedShift"
 				ng-options="shift for shift in routeDropDownOptions.shifts"
-				ng-change="chooseShift(routeDropDownOptions.selected_shift)">
+				ng-change="chooseShift(routeDropDownOptions.selectedShift)">
 				<option value=""></option>
 			</select>
-			<label for="selectRoute">Select Route: </label>
+			<label for="selectRoute">Select Route:&nbsp;&nbsp;&nbsp;</label>
 			<select class="form-control" 
 				ng-disabled="routeDropDownOptions.disabled"
-				ng-model="routeDropDownOptions.selected_route"
-				ng-change="chooseRoute(routeDropDownOptions.selected_route)">
+				ng-model="routeDropDownOptions.selectedRoute"
+				ng-change="chooseRoute(routeDropDownOptions.selectedRoute)">
 				<option ng-repeat="route in routeDropDownOptions.routeArray" value='{{route.id}}'>{{route.name}}</option>
 			</select>
   			<div class="row">{{routeDropDownOptions.selected_latlngs}}</div>
@@ -21,9 +21,6 @@
 		</div>
 	</form>
 	<div class="row">
-		<button type="button" class="btn btn-primary" ng-click="getMapInstance()">xxxx</button>
-	</div>
-	<div class="row">
-		<google-map center="map.center" zoom="map.zoom" control="map.control"></google-map>
+		<google-map center="map.center" zoom="map.zoom" control="map.control" options="map.options"  draggable="true"></google-map>
 	</div>	
 </div>

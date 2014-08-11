@@ -4,23 +4,27 @@
   			<div class="row">&nbsp;</div>
 			<label for="selectShift">Select Shift:&nbsp;&nbsp;&nbsp;</label>
 			<select class="form-control nullable" 
-				ng-model="routeDropDownOptions.selectedShift"
-				ng-options="shift for shift in routeDropDownOptions.shifts"
-				ng-change="chooseShift(routeDropDownOptions.selectedShift)">
+				ng-model="dropDownOptions.selectedShift"
+				ng-options="shift for shift in dropDownOptions.shifts"
+				ng-change="chooseShift(dropDownOptions.selectedShift)">
 				<option value=""></option>
 			</select>
 			<label for="selectRoute">Select Route:&nbsp;&nbsp;&nbsp;</label>
 			<select class="form-control" 
-				ng-disabled="routeDropDownOptions.disabled"
-				ng-model="routeDropDownOptions.selectedRoute"
-				ng-change="chooseRoute(routeDropDownOptions.selectedRoute)">
-				<option ng-repeat="route in routeDropDownOptions.routeArray" value='{{route.id}}'>{{route.name}}</option>
+				ng-disabled="dropDownOptions.disabled"
+				ng-model="dropDownOptions.selectedRoute"
+				ng-change="chooseRoute(dropDownOptions.selectedRoute)">
+				<option ng-repeat="route in dropDownOptions.routeArray" value='{{route.id}}'>{{route.name}}</option>
 			</select>
-  			<div class="row">{{routeDropDownOptions.selected_latlngs}}</div>
   			<div class="row">&nbsp;</div>
 		</div>
 	</form>
 	<div class="row">
-		<google-map center="map.center" zoom="map.zoom" control="map.control" options="map.options"  draggable="true"></google-map>
+		<div class="col-md-8">
+			<google-map center="map.center" zoom="map.zoom" control="map.control" options="map.options"  draggable="true"></google-map>
+		</div>
+		<div class="col-md-4">
+			<div id="directionsPanel"></div>
+		</div>
 	</div>	
 </div>

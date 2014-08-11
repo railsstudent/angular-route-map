@@ -60,7 +60,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
                 latitude: 22.3910, 
                 longitude: 114.0878
             },
-            zoom: 11,
+            zoom: 12,
             control: {},
             options: {
               disableDefaultUI: false

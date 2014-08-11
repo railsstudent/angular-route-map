@@ -107,10 +107,12 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
           }, error_callback);
         };
 
-        var calRoute = function() {
+        var calRoute = function myCalRoute() {
           // delete route
           directionsDisplay.setMap(null);
-          directionsDisplay.setMap($scope.map.control.getGMap());
+          var gmap = $scope.map.control.getGMap()
+          if ($scope.map.control.getGMap()) {
+            directionsDisplay.setMap($scope.map.control.getGMap());
 
           if (_.isNull($scope.routeDropDownOptions.selected_latlngs) === false) {
             var first = _.first($scope.routeDropDownOptions.selected_latlngs);
@@ -120,10 +122,11 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
             if (size > 2) {
               for (var i = 1; i < size - 1; i++) {
                   var temp = $scope.routeDropDownOptions.selected_latlngs[i];
-                  waypts.push( { 
-                                  location : new google.maps.LatLng(temp.lat, temp.lng), 
-                                   stopover : true 
-                                });
+                  var waypoint = { 
+                                    location : new google.maps.LatLng(temp.lat, temp.lng), 
+                                    stopover : true 
+                                  }
+                  waypts.push(waypoint);
               }
             }
 
@@ -144,17 +147,17 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
         };
 
         $scope.chooseRoute = function _chooseRoute(route_id) {
-          var tmp_routes = $scope.routeDropDownOptions.routeArray;
-          var selected_route = 
-            _.find(tmp_routes, function(route) {
-                return _.isEqual(route.id, _.parseInt(route_id));
-            });
-          if (_.isNull(selected_route)) {
-            $scope.routeDropDownOptions.selected_latlngs = null;
-          } else {
-            $scope.routeDropDownOptions.selected_latlngs = selected_route.stop_name;  
-            calRoute();
-          }
+            var tmp_routes = $scope.routeDropDownOptions.routeArray;
+            var selected_route = 
+              _.find(tmp_routes, function(route) {
+                  return _.isEqual(route.id, _.parseInt(route_id));
+              });
+            if (_.isNull(selected_route)) {
+              $scope.routeDropDownOptions.selected_latlngs = null;
+            } else {
+              $scope.routeDropDownOptions.selected_latlngs = selected_route.stop_name;  
+              calRoute();
+            }
         };
 
         $scope.chooseShift = function _chooseShift(val) {

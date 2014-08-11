@@ -6,6 +6,10 @@
     "grunt": "^0.4.5",
     "logfmt": "^1.1.2"
   },
+  "repository" :
+  {   "type" : "git"
+    , "url" : "http://github.com/npm/npm.git"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",

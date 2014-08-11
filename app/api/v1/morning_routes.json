@@ -26,7 +26,7 @@
 	      "description": "Tsing Yi -> Tsuen Wan -> Science Park",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	{ "name" : "Tsing Yi MTR Station [7:50 AM]",
+	      	{ "name" : "Tsing Yi MTR Station Exit C [7:50 AM]",
 	      		"lat": 22.359888, 
 	      		"lng" : 114.106665
 	      	 },

@@ -44,7 +44,7 @@
               templateUrl: 'views/route.html',
               resolve: { 
                   routes:  ['Restangular', function(Restangular) {
-                    return Restangular.all('morning_routes.json').getList().then(
+                    return Restangular.all('route/morning').getList().then(
                       function(data) {
                         return data;
                       }, 
@@ -63,7 +63,7 @@
             templateUrl: 'views/route.html',
             resolve: { 
                   routes:  ['Restangular', function(Restangular) {
-                    return Restangular.all('evening_routes.json').getList().then(
+                    return Restangular.all('route/evening').getList().then(
                       function(data) {
                         return data;
                       }, 
@@ -94,14 +94,21 @@
           var extractedData = data;
             // .. to look for getList operations
           if (operation === 'getList') {
-              if (_.isEqual(what, 'evening_routes.json') || 
-                      _.isEqual(what, 'morning_routes.json')) {
+             // if (_.isEqual(what, 'evening_routes.json') || 
+             //         _.isEqual(what, 'morning_routes.json')) {
+             //   extractedData = data.routes;
+             // }
+            if (_.isEqual(what, 'route/evening') || 
+                      _.isEqual(what, 'route/morning')) {
                 extractedData = data.routes;
-              }
+            }
           }
           return extractedData;
     });
-  }]); 
+
+  }]);
+
+   
 
 
  

@@ -19,12 +19,12 @@ app
 
   			// return a promise
   			getDayLatLngs : function() {
-  				return Restangular.all('morning_routes.json').getList();
+  				return Restangular.all('route/morning').getList();
   			},
 
   			// return a promise
   			getNightLatLngs : function() {
-  				return Restangular.all('evening_routes.json').getList();
+  				return Restangular.all('route/evening').getList();
   			} 
   		};
   }]);

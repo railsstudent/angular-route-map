@@ -1,6 +1,7 @@
 {
   "name": "angularroutemap",
-  "version": "0.0.0",
+  "description": "Shuttle Bus Routing Application",
+  "version": "0.0.1",
   "dependencies": {
     "express": "^4.7.1",
     "grunt": "^0.4.5",

@@ -59,9 +59,23 @@ router.get('/', function(req, res) {
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/app'));
 
+// http://stackoverflow.com/questions/19687667/making-ajax-call-angular-to-node-js-express-js
+var allowCrossDomain = function (req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+	res.header('Access-Control-Allow-Headers', 'content-type, Authorization, Content-Length, X-Requested-With, Origin, Accept');
+
+	if ('OPTIONS' === req.method) {
+	    res.send(200);
+	} else {
+	    next();
+	}
+};
+
+app.use(allowCrossDomain);
+
 // apply the routes to our application
 app.use('/', router);
-
 
 // Error-handling middleware 
 app.use(function(err, req, res, next){

@@ -18,13 +18,21 @@ app
   			getShifts : function() { return [ 'Day', 'Night']; },
 
   			// return a promise
-  			getDayLatLngs : function() {
-  				return Restangular.all('route/morning').getList();
+  			getDayLatLngs : function(id) {
+  				return Restangular.all('route/morning').get(id);
   			},
 
+        getDayRouteNames : function() {
+          return Restangular.all('route/names/morning').getList();
+        },
+
   			// return a promise
-  			getNightLatLngs : function() {
-  				return Restangular.all('route/evening').getList();
-  			} 
+  			getNightLatLngs : function(id) {
+  				return Restangular.all('route/evening').get(id);
+  			},
+
+        getNightRouteNames : function() {
+          return Restangular.all('route/names/evening').getList();
+        }, 
   		};
   }]);

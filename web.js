@@ -22,7 +22,7 @@ router.use(function(req, res, next) {
 });
 
 router.route('/api/v1/route/morning')
-	// get all the morning routes (accessed at GET http://localhost:8080/api/v1/route/morning)
+	// get all the morning routes (accessed at GET http://localhost:5000/api/v1/route/morning)
 	.get(function(req, res) {
 		var file = __dirname + '/app/api/v1/morning_routes.json';
 		fs.readFile(file, 'utf8', function (err, data) {
@@ -30,8 +30,53 @@ router.route('/api/v1/route/morning')
 				console.log('Error: ' + err);
 			    return;
 			}
-  			data = JSON.parse(data);
-  			res.send(data);
+  			var jsondata = JSON.parse(data);
+  			res.send(jsondata);
+		});
+	});
+
+router.route('/api/v1/route/morning/:id')
+	// get all the morning routes (accessed at
+	// GET http://localhost:5000/api/v1/route/morning/:id)
+	.get(function(req, res) {
+
+		var file = __dirname + '/app/api/v1/morning_routes.json';
+		fs.readFile(file, 'utf8', function (err, data) {
+			if (err) {
+				console.log('Error: ' + err);
+			    return;
+			}
+  			var data = JSON.parse(data);
+  			var routes = data.routes;
+  			var arr = undefined;
+  			var intId = parseInt(req.params.id);
+  			for (var i = 0; i < routes.length; i++) {
+  				if (routes[i].id === intId) {
+  					arr = routes[i];
+  				}
+  			}
+  			res.send(arr);
+		});
+	});
+
+router.route('/api/v1/route/names/:shift')
+	// get all the morning routes 
+	// (accessed at GET http://localhost:5000/api/v1/route/names/:shift)
+	.get(function(req, res) {
+
+		var file = __dirname + '/app/api/v1/' + req.params.shift + '_routes.json';
+		fs.readFile(file, 'utf8', function (err, data) {
+			if (err) {
+				console.log('Error: ' + err);
+			    return;
+			}
+  			var data = JSON.parse(data);
+  			var routes = data.routes;
+  			var arr = [];
+  			for (var i = 0; i < routes.length; i++) {
+  				arr.push({"id" : routes[i].id, "name" : routes[i].name});
+  			}
+			res.send({ "routes" : arr });
 		});
 	});
 
@@ -44,8 +89,29 @@ router.route('/api/v1/route/evening')
 				console.log('Error: ' + err);
 			    return;
 			}
-  			data = JSON.parse(data);
-			res.send(data);
+  			var jsondata = JSON.parse(data);
+			res.send(jsondata);
+		});
+	});
+
+router.route('/api/v1/route/evening/:id')
+	.get(function(req, res) {
+		var file = __dirname + '/app/api/v1/evening_routes.json';
+		fs.readFile(file, 'utf8', function (err, data) {
+			if (err) {
+				console.log('Error: ' + err);
+			    return;
+			}
+  			var jsondata = JSON.parse(data);
+  			var routes = jsondata.routes;
+  			var arr = undefined;
+  			var intId = parseInt(req.params.id);
+  			for (var i = 0; i < routes.length; i++) {
+  				if (routes[i].id === intId) {
+  					arr = routes[i];
+  				}
+  			}
+  			res.send(arr);
 		});
 	});
 
@@ -60,7 +126,7 @@ app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/app'));
 
 // http://stackoverflow.com/questions/19687667/making-ajax-call-angular-to-node-js-express-js
-var allowCrossDomain = function (req, res, next) {
+/*var allowCrossDomain = function (req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
 	res.header('Access-Control-Allow-Headers', 'content-type, Authorization, Content-Length, X-Requested-With, Origin, Accept');
@@ -70,9 +136,9 @@ var allowCrossDomain = function (req, res, next) {
 	} else {
 	    next();
 	}
-};
+};*/
 
-app.use(allowCrossDomain);
+//app.use(allowCrossDomain);
 
 // apply the routes to our application
 app.use('/', router);

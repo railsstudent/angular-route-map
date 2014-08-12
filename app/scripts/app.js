@@ -94,12 +94,10 @@
           var extractedData = data;
             // .. to look for getList operations
           if (operation === 'getList') {
-             // if (_.isEqual(what, 'evening_routes.json') || 
-             //         _.isEqual(what, 'morning_routes.json')) {
-             //   extractedData = data.routes;
-             // }
             if (_.isEqual(what, 'route/evening') || 
-                      _.isEqual(what, 'route/morning')) {
+                _.isEqual(what, 'route/morning') ||
+                _.isEqual(what, 'route/names/morning') ||
+                _.isEqual(what, 'route/names/evening')) {
                 extractedData = data.routes;
             }
           }

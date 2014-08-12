@@ -84,8 +84,8 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
           $scope.dropDownOptions.disabled = true;
         };
 
-        var success_callback = function successCallback(arrLatLng) {
-          var filteredResult = arrLatLng;
+        var success_callback = function successCallback(arrNames) {
+          var filteredResult = arrNames;
 
           $scope.dropDownOptions.selected_latlngs = null;
           $scope.dropDownOptions.disabled = true;                
@@ -93,16 +93,22 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
             filteredResult = [];
           } 
           if (_.isEmpty(filteredResult) === false) {
-            $scope.dropDownOptions.selectedRoute = filteredResult[0].id;
+            var intId = filteredResult[0].id;
+            $scope.dropDownOptions.selectedRoute = intId;
 
-            var selected_route = _.find(filteredResult, function(route) {
-              return _.isEqual(route.id, filteredResult[0].id);
-            });
-            if (_.isNull(selected_route) === false) {
-              $scope.dropDownOptions.selected_latlngs = selected_route.stop_name;
-              $scope.dropDownOptions.disabled = false;
+            var selected_route = undefined;
+            if (_.isEqual($scope.dropDownOptions.selectedShift, 'Day')) {
+              selected_route = RouteService.getDayLatLngs(intId);
+            } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Night')) {
+              selected_route = RouteService.getNightLatLngs(intId);              
             }
-            calRoute();
+            if (!_.isNull(selected_route)) {
+              selected_route.then(function(resultRoute){
+                $scope.dropDownOptions.selected_latlngs = resultRoute.stop_name;
+                $scope.dropDownOptions.disabled = false;
+                calRoute();
+              });
+            }
           }
           $scope.dropDownOptions.routeArray = filteredResult;
         };
@@ -154,16 +160,20 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
         };
 
         $scope.chooseRoute = function _chooseRoute(route_id) {
-            var tmp_routes = $scope.dropDownOptions.routeArray;
-            var selected_route = 
-              _.find(tmp_routes, function(route) {
-                  return _.isEqual(route.id, _.parseInt(route_id));
-              });
+            var selected_route = undefined;
+            var intId = _.parseInt(route_id);
+            if (_.isEqual($scope.dropDownOptions.selectedShift, 'Day')) {
+              selected_route = RouteService.getDayLatLngs(intId);
+            } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Night')) {
+              selected_route = RouteService.getNightLatLngs(intId);              
+            }
             if (_.isNull(selected_route)) {
               $scope.dropDownOptions.selected_latlngs = null;
             } else {
-              $scope.dropDownOptions.selected_latlngs = selected_route.stop_name;  
-              calRoute();
+              selected_route.then(function(resultRoute) {
+                $scope.dropDownOptions.selected_latlngs = resultRoute.stop_name;  
+                calRoute();
+              });
             }
         };
 
@@ -175,9 +185,9 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
             $scope.dropDownOptions.selected_latlngs = [];
             directionsDisplay.setMap(null);
             if (_.isEqual('Day', val)) {
-              getRouteInfo(RouteService.getDayLatLngs());
+              getRouteInfo(RouteService.getDayRouteNames());
             } else if (_.isEqual('Night', val)) {
-              getRouteInfo(RouteService.getNightLatLngs());
+              getRouteInfo(RouteService.getNightRouteNames());
             } 
           };
       }]);

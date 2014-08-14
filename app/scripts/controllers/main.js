@@ -73,21 +73,21 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
           shifts : RouteService.getShifts(),
           routeArray : [],
           disabled : true,
-          selected_latlngs : []
+          selectedLatlngs : []
         };
         
         var error_callback = function errorCallback(err) {
           console.log(err);
           $scope.dropDownOptions.routeArray = [];
           $scope.dropDownOptions.selectedRoute = undefined;
-          $scope.dropDownOptions.selected_latlngs = [];
+          $scope.dropDownOptions.selectedLatlngs = [];
           $scope.dropDownOptions.disabled = true;
         };
 
         var success_callback = function successCallback(arrNames) {
           var filteredResult = arrNames;
 
-          $scope.dropDownOptions.selected_latlngs = null;
+          $scope.dropDownOptions.selectedLatlngs = null;
           $scope.dropDownOptions.disabled = true;                
           if (_.isNull(filteredResult)) {
             filteredResult = [];
@@ -96,7 +96,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
             var intId = filteredResult[0].id;
             $scope.dropDownOptions.selectedRoute = intId;
 
-            var selected_route = undefined;
+            var selected_route = null;
             if (_.isEqual($scope.dropDownOptions.selectedShift, 'Day')) {
               selected_route = RouteService.getDayLatLngs(intId);
             } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Night')) {
@@ -104,7 +104,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
             }
             if (!_.isNull(selected_route)) {
               selected_route.then(function(resultRoute){
-                $scope.dropDownOptions.selected_latlngs = resultRoute.stop_name;
+                $scope.dropDownOptions.selectedLatlngs = resultRoute.stop_name;
                 $scope.dropDownOptions.disabled = false;
                 calRoute();
               });
@@ -124,7 +124,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
           if (_.isNull(gmap) === false) {
             directionsDisplay.setMap(gmap);
 
-            var selectedLatLngs = $scope.dropDownOptions.selected_latlngs;
+            var selectedLatLngs = $scope.dropDownOptions.selectedLatlngs;
             if (_.isNull(selectedLatLngs) === false 
                 && _.isEmpty(selectedLatLngs) === false) {
               var first = _.first(selectedLatLngs);
@@ -168,10 +168,10 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
               selected_route = RouteService.getNightLatLngs(intId);              
             }
             if (_.isNull(selected_route)) {
-              $scope.dropDownOptions.selected_latlngs = null;
+              $scope.dropDownOptions.selectedLatlngs = null;
             } else {
               selected_route.then(function(resultRoute) {
-                $scope.dropDownOptions.selected_latlngs = resultRoute.stop_name;  
+                $scope.dropDownOptions.selectedLatlngs = resultRoute.stop_name;  
                 calRoute();
               });
             }
@@ -182,7 +182,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
             $scope.dropDownOptions.routeArray = [];
             $scope.dropDownOptions.selectedRoute = undefined;
             $scope.dropDownOptions.disabled = true;
-            $scope.dropDownOptions.selected_latlngs = [];
+            $scope.dropDownOptions.selectedLatlngs = [];
             directionsDisplay.setMap(null);
             if (_.isEqual('Day', val)) {
               getRouteInfo(RouteService.getDayRouteNames());
@@ -193,4 +193,24 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
       }])
   .controller('CreateRouteCtrl', ['$scope',  
       function($scope) {
+
+        var rendererOptions = {
+          draggable: true
+        };
+
+        var directionsService = new google.maps.DirectionsService();
+        var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+        directionsDisplay.setPanel(document.getElementById('directionsPanel'));
+      
+        $scope.map = {
+            center: {
+                latitude: 22.3910, 
+                longitude: 114.0878
+            },
+            zoom: 12,
+            control: {},
+            options: {
+              disableDefaultUI: false
+            }
+        };
       }]);

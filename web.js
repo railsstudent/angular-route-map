@@ -33,7 +33,7 @@ var sendJson = function _readFile(filename, req, res) {
 };
 
 var sendOneRoute = function _readFile(filename, req, res) {
-	fs.readFile(file, 'utf8', function (err, data) {
+	fs.readFile(filename, 'utf8', function (err, data) {
 		if (err) {
 			console.log('Error: ' + err);
 		    return;

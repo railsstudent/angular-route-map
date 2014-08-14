@@ -190,4 +190,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title',
               getRouteInfo(RouteService.getNightRouteNames());
             } 
           };
+      }])
+  .controller('CreateRouteCtrl', ['$scope',  
+      function($scope) {
       }]);

@@ -81,6 +81,12 @@
             url: '/route_map',
             templateUrl: 'views/route_map.html',
             controller: 'RouteMapCtrl'
+          })
+        .state('create_route', 
+          { 
+            url: '/create_route',
+            templateUrl: 'views/create_route.html',
+            controller: 'CreateRouteCtrl'
           });
     }]);
 

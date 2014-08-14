@@ -21,42 +21,49 @@ router.use(function(req, res, next) {
 	next(); // make sure we go to the next routes and don't stop here
 });
 
+var sendJson = function _readFile(filename, req, res) {
+	fs.readFile(filename, 'utf8', function (err, data) {
+		if (err) {
+			console.log('Error: ' + err);
+		    return;
+		}
+		var jsondata = JSON.parse(data);
+		res.send(jsondata);
+	});
+};
+
+var sendOneRoute = function _readFile(filename, req, res) {
+	fs.readFile(file, 'utf8', function (err, data) {
+		if (err) {
+			console.log('Error: ' + err);
+		    return;
+		}
+		var jsonData = JSON.parse(data);
+		var routes = jsonData.routes;
+		var arr = undefined;
+		var intId = parseInt(req.params.id);
+		for (var i = 0; i < routes.length; i++) {
+			if (routes[i].id === intId) {
+				arr = routes[i];
+			}
+		}
+		res.send(arr);
+	});
+};
+
 router.route('/api/v1/route/morning')
 	// get all the morning routes (accessed at GET http://localhost:5000/api/v1/route/morning)
 	.get(function(req, res) {
 		var file = __dirname + '/app/api/v1/morning_routes.json';
-		fs.readFile(file, 'utf8', function (err, data) {
-			if (err) {
-				console.log('Error: ' + err);
-			    return;
-			}
-  			var jsondata = JSON.parse(data);
-  			res.send(jsondata);
-		});
+		sendJson(file, req, res);
 	});
 
 router.route('/api/v1/route/morning/:id')
 	// get all the morning routes (accessed at
 	// GET http://localhost:5000/api/v1/route/morning/:id)
 	.get(function(req, res) {
-
 		var file = __dirname + '/app/api/v1/morning_routes.json';
-		fs.readFile(file, 'utf8', function (err, data) {
-			if (err) {
-				console.log('Error: ' + err);
-			    return;
-			}
-  			var data = JSON.parse(data);
-  			var routes = data.routes;
-  			var arr = undefined;
-  			var intId = parseInt(req.params.id);
-  			for (var i = 0; i < routes.length; i++) {
-  				if (routes[i].id === intId) {
-  					arr = routes[i];
-  				}
-  			}
-  			res.send(arr);
-		});
+		sendOneRoute(file, req, res);
 	});
 
 router.route('/api/v1/route/names/:shift')
@@ -84,35 +91,13 @@ router.route('/api/v1/route/names/:shift')
 router.route('/api/v1/route/evening')
 	.get(function(req, res) {
 		var file = __dirname + '/app/api/v1/evening_routes.json';
-		fs.readFile(file, 'utf8', function (err, data) {
-			if (err) {
-				console.log('Error: ' + err);
-			    return;
-			}
-  			var jsondata = JSON.parse(data);
-			res.send(jsondata);
-		});
+		sendJson(file, req, res);
 	});
 
 router.route('/api/v1/route/evening/:id')
 	.get(function(req, res) {
 		var file = __dirname + '/app/api/v1/evening_routes.json';
-		fs.readFile(file, 'utf8', function (err, data) {
-			if (err) {
-				console.log('Error: ' + err);
-			    return;
-			}
-  			var jsondata = JSON.parse(data);
-  			var routes = jsondata.routes;
-  			var arr = undefined;
-  			var intId = parseInt(req.params.id);
-  			for (var i = 0; i < routes.length; i++) {
-  				if (routes[i].id === intId) {
-  					arr = routes[i];
-  				}
-  			}
-  			res.send(arr);
-		});
+		sendOneRoute(file, req, res);
 	});
 
 // home page route (http://localhost:5000)

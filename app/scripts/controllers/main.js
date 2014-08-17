@@ -204,6 +204,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
           draggable: false
         };
 
+        //// https://github.com/wpalahnuk/ngAutocomplete
         // http://lemonharpy.wordpress.com/2011/12/15/working-around-8-waypoint-limit-in-google-maps-directions-api/
         // JS Fiddle: http://jsfiddle.net/ZyHnk/
 
@@ -379,53 +380,55 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
                       travelMode: window.google.maps.TravelMode.DRIVING
                   };
                   
-                  directionsService.route(request, function (result, status) {
-                    if (_.isEqual(status, window.google.maps.DirectionsStatus.OK)) {
+                  (function (kk) {
+                    directionsService.route(request, function (result, status) {
+                      if (_.isEqual(status, window.google.maps.DirectionsStatus.OK)) {
 
-                      var unsortedResult = { order: k, result: result };
-                      unsortedResults.push(unsortedResult);
-                              
-                      directionsResultsReturned++;
-                      if (_.isEqual(directionsResultsReturned, batches.length)) {// we've received all the results. put to map
-                
-                        // sort the returned values into their correct order
-                        unsortedResults.sort(function (a, b) { return parseFloat(a.order) - parseFloat(b.order); });
-                        var count = 0;
-                        for (var key in unsortedResults) {
-                            if (_.isObject(unsortedResults[key].result)) {
-                                // if (unsortedResults.hasOwnProperty(key)) {
-                                if (_.has(unsortedResults, key)) {
-                                    if (_.isEqual(count, 0)) { // first results. new up the combinedResults object
-                                        combinedResults = unsortedResults[key].result;
-                                    } else {
-                                        // only building up legs, overview_path, and bounds in my consolidated object. 
-                                        // This is not a complete 
-                                        // directionResults object, but enough to draw a path on the map, which is all I need
-                                        combinedResults.routes[0].legs = combinedResults.routes[0].legs.concat(
-                                                                            unsortedResults[key].result.routes[0].legs);
-                                        combinedResults.routes[0].overview_path = combinedResults.routes[0].overview_path.concat(
-                                                                            unsortedResults[key].result.routes[0].overview_path);
-                                        combinedResults.routes[0].bounds = combinedResults.routes[0].bounds.extend(
-                                                                              unsortedResults[key].result.routes[0].bounds.getNorthEast());
-                                        combinedResults.routes[0].bounds = combinedResults.routes[0].bounds.extend(
-                                                                              unsortedResults[key].result.routes[0].bounds.getSouthWest());
-                                    }
-                                    count++;
-                                }
-                            }
-                        }
-
-                        // add custom marker
-                        if (_.isArray(combinedResults.routes)) {
-                          if (_.isObject(combinedResults.routes[0])) { 
-                            addCustomMarkers(combinedResults.routes[0].legs, gmap);
+                        var unsortedResult = { order: kk, result: result };
+                        unsortedResults.push(unsortedResult);
+                                
+                        directionsResultsReturned++;
+                        if (_.isEqual(directionsResultsReturned, batches.length)) {// we've received all the results. put to map
+                  
+                          // sort the returned values into their correct order
+                          unsortedResults.sort(function (a, b) { return parseFloat(a.order) - parseFloat(b.order); });
+                          var count = 0;
+                          for (var key in unsortedResults) {
+                              if (_.isObject(unsortedResults[key].result)) {
+                                  // if (unsortedResults.hasOwnProperty(key)) {
+                                  if (_.has(unsortedResults, key)) {
+                                      if (_.isEqual(count, 0)) { // first results. new up the combinedResults object
+                                          combinedResults = unsortedResults[key].result;
+                                      } else {
+                                          // only building up legs, overview_path, and bounds in my consolidated object. 
+                                          // This is not a complete 
+                                          // directionResults object, but enough to draw a path on the map, which is all I need
+                                          combinedResults.routes[0].legs = combinedResults.routes[0].legs.concat(
+                                                                              unsortedResults[key].result.routes[0].legs);
+                                          combinedResults.routes[0].overview_path = combinedResults.routes[0].overview_path.concat(
+                                                                              unsortedResults[key].result.routes[0].overview_path);
+                                          combinedResults.routes[0].bounds = combinedResults.routes[0].bounds.extend(
+                                                                                unsortedResults[key].result.routes[0].bounds.getNorthEast());
+                                          combinedResults.routes[0].bounds = combinedResults.routes[0].bounds.extend(
+                                                                                unsortedResults[key].result.routes[0].bounds.getSouthWest());
+                                      }
+                                      count++;
+                                  }
+                              }
                           }
-                        }
 
-                        directionsDisplay.setDirections(combinedResults);
+                          // add custom marker
+                          if (_.isArray(combinedResults.routes)) {
+                            if (_.isObject(combinedResults.routes[0])) { 
+                              addCustomMarkers(combinedResults.routes[0].legs, gmap);
+                            }
+                          }
+
+                          directionsDisplay.setDirections(combinedResults);
+                        }
                       }
-                    }
-                });  // directionsService.route
+                  })   // directionsService.route
+                }) (k);
               } // for k
             }  // end if
         };  // end of calRoute function

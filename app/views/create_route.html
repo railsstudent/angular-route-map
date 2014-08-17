@@ -21,7 +21,11 @@
 							<span class="text-left">{{$index + 1}})</span>
 						</div>
 						<div class="col-md-9">
-							<input type="text" name="address" placeholder="Input address" class="form-control" required 		ng-model='route.name' value='{{route.name}}'></input>
+							<input type="text" name="address{{$index+1}}" placeholder="Input address" 
+								class="form-control" required ng-model='route.name' value='{{route.name}}'
+								ng-autocomplete='route.name'  options='options'>
+							</input>
+
 						</div>
 						<div class="col-md-1">
 							<button type="button" class="btn btn-default" ng-click="removeRow($index)" tooltip="Delete current row">
@@ -49,6 +53,9 @@
 			</form>
 		</div>
 	</div>	
+	<div class="row">
+		Debug : {{routes}}
+	</div>
 	<div class="row">
 		<div class="col-md-12">
   			<h3>Direction</h3>

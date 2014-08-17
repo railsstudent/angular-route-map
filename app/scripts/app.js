@@ -18,7 +18,8 @@
     'ui.router',
     'ui.bootstrap',
     'restangular',
-    'google-maps'
+    'google-maps',
+    'ngAutocomplete'
   ]);
 
 

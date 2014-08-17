@@ -199,16 +199,40 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
   .controller('CreateRouteCtrl', ['$scope',  
       function($scope) {
 
+        var rendererOptions = {
+          suppressMarkers : true,
+          draggable: false
+        };
+
         // http://lemonharpy.wordpress.com/2011/12/15/working-around-8-waypoint-limit-in-google-maps-directions-api/
         // JS Fiddle: http://jsfiddle.net/ZyHnk/
 
         var directionsService = new google.maps.DirectionsService();
-        var directionsDisplay = new google.maps.DirectionsRenderer();
+        var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
         directionsDisplay.setPanel(document.getElementById('directionsPanel'));
       
         $scope.routes = [];
-
         $scope.sciencePark =  { 'name' : '10 Science Park W Ave' }; 
+        $scope.fullRoutes = [];
+        $scope.myMarkers = [];
+
+        $scope.map = {
+            center: {
+                latitude: 22.3910, 
+                longitude: 114.0878
+            },
+            zoom: 12,
+            control: {},
+            options: {
+              disableDefaultUI: false
+            }
+        };
+
+        $scope.options = {
+          types : 'geocode', 
+          country: 'hk',
+          watchEnter : false
+        };
 
         $scope.addRow = function _addRow() {
           $scope.routes.push( { 'name' : '' } );
@@ -231,20 +255,6 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
         $scope.insertAfterRow = function _insertAfterRow(idx) {
             $scope.routes.splice(idx + 1 , 0, { 'name' : '' });
         };
-
-        $scope.map = {
-            center: {
-                latitude: 22.3910, 
-                longitude: 114.0878
-            },
-            zoom: 12,
-            control: {},
-            options: {
-              disableDefaultUI: false
-            }
-        };
-
-        $scope.fullRoutes = [];
 
         var splitBatches =  function _splitBatches() {
           
@@ -281,9 +291,63 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
           return batches;
         };
 
+        //http://stackoverflow.com/questions/1544739/google-maps-api-v3-how-to-remove-all-markers
+        var clearOverlays = function _clearOverlays() {
+          _.each($scope.myMarkers, function(m) {
+            m.setMap(null);
+          });
+          $scope.myMarkers = [];  
+        };
+
+        var stepDisplay = new google.maps.InfoWindow();
+        var createCustomMarker = function _createMarker(position, gmap, number, address_name) {
+           
+            var icon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + number + '|FF0000|000000';
+            var marker = new google.maps.Marker({
+                                    position: position, 
+                                    map: gmap,
+                                    icon: icon
+                              }); 
+
+            google.maps.event.addListener(marker, 'click', function() {
+              // Open an info window when the marker is clicked on,
+              // containing the address of the step.
+              stepDisplay.setContent(address_name);
+              stepDisplay.open(gmap, marker);
+            });
+           return marker;
+        };
+
+        var addCustomMarkers = function _addCustomMarkers(legArray, gmap) {
+
+          clearOverlays();
+          if (_.isArray(legArray)) {
+              var marker = null;
+              var numElement = _.size(legArray);
+
+              // add marker for start
+              var firstLeg = _.first(legArray);
+              marker = createCustomMarker(firstLeg.start_location, gmap, 1, firstLeg.start_address); 
+              $scope.myMarkers.push(marker);    
+
+              if (numElement > 1) {
+                _.each(legArray, function(leg, idx) {
+                    marker = createCustomMarker(leg.end_location, gmap, idx + 2, leg.end_address); 
+                    $scope.myMarkers.push(marker);  
+                });
+              }
+
+              // add marker for destination
+              var lastLeg = _.last(legArray);
+              marker = createCustomMarker(lastLeg.end_location, gmap, numElement + 1, lastLeg.end_address);
+              $scope.myMarkers.push(marker);  
+          }
+        };
+
         // http://googlemaps.googlermania.com/google_maps_api_v3/en/map_example_direction_customicon.html
         // http://lemonharpy.wordpress.com/2011/12/15/working-around-8-waypoint-limit-in-google-maps-directions-api/
         $scope.calRoute = function _calRoute() {
+
             // delete route
             directionsDisplay.setMap(null);
             var gmap = $scope.map.control.getGMap();
@@ -350,6 +414,14 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
                                 }
                             }
                         }
+
+                        // add custom marker
+                        if (_.isArray(combinedResults.routes)) {
+                          if (_.isObject(combinedResults.routes[0])) { 
+                            addCustomMarkers(combinedResults.routes[0].legs, gmap);
+                          }
+                        }
+
                         directionsDisplay.setDirections(combinedResults);
                       }
                     }

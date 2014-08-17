@@ -53,10 +53,21 @@
                         return [];
                       });
                     }],
-                    title: [ function() { return 'Day Routes'; } ]
+                    title: [ function() { return 'Day Routes'; } ],
+                    prefix : [ function() { return 'morning'; } ]
                 },
               controller: 'RouteCtrl'
             })
+// http://stackoverflow.com/questions/20866931/ui-router-nested-route-controller-isnt-being-called
+        .state('morning_route_map', 
+          { 
+            url: '/morning/route_map',
+            templateUrl: 'views/route_map.html',
+            controller: 'RouteMapCtrl',
+            resolve : { 
+              selectedShift : [ function() { return 'Day'; } ]
+            }
+          })
         .state('evening_route', 
           { 
             url: '/evening_route',
@@ -72,15 +83,20 @@
                         return [];
                       });
                     }],
-                    title: [ function() { return 'Night Routes'; } ]
+                    title : [ function() { return 'Night Routes'; } ],
+                    prefix : [ function() { return 'evening'; } ]
                 },
             controller: 'RouteCtrl'
           })
-        .state('route_map', 
+// http://stackoverflow.com/questions/20866931/ui-router-nested-route-controller-isnt-being-called
+         .state('evening_route_map', 
           { 
-            url: '/route_map',
+            url: '/evening/route_map',
             templateUrl: 'views/route_map.html',
-            controller: 'RouteMapCtrl'
+            controller: 'RouteMapCtrl',
+            resolve : { 
+              selectedShift : [ function() { return 'Night'; } ]
+            }
           })
         .state('create_route', 
           { 

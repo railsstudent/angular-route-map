@@ -6,7 +6,7 @@
 			<select class="form-control nullable" 
 				ng-model="dropDownOptions.selectedShift"
 				ng-options="shift for shift in dropDownOptions.shifts"
-				ng-change="chooseShift(dropDownOptions.selectedShift)">
+				ng-change="chooseShift(dropDownOptions.selectedShift)" ng-disabled="true">
 				<option value=""></option>
 			</select>
 			<label for="selectRoute">Select Route:&nbsp;&nbsp;&nbsp;</label>

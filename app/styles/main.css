@@ -82,3 +82,7 @@ ul.hide_bullet
   float: right;
   overflow: scroll;
 }
+
+.error {
+  color: #ff0000;
+}

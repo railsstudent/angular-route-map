@@ -3,8 +3,9 @@
   "description": "Shuttle Bus Routing Application",
   "version": "0.0.1",
   "dependencies": {
-    "express": "^4.7.1",
+    "express": "^4.8.4",
     "grunt": "^0.4.5",
+    "gzippo": "^0.2.0",
     "logfmt": "^1.1.2"
   },
   "repository": {

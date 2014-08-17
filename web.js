@@ -1,9 +1,11 @@
+var gzippo = require('gzippo');
 var express = require("express");
 var logfmt = require("logfmt");
 var fs = require('fs');
 var app = express();
 
 app.use(logfmt.requestLogger());
+app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 
 // API Documentation: http://expressjs.com/4x/api.html#router
 // http://scotch.io/tutorials/javascript/learn-to-use-the-new-router-in-expressjs-4

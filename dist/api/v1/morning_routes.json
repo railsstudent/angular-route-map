@@ -1,0 +1,144 @@
+{
+	"routes":  [
+	   {
+	   	  "id" : 1,
+	      "name": "New Territory North",
+	      "description": "Tsuen Mun -> Yuen Long -> Science Park",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "Siu Hong MTR Station (West Rail)",
+	      	  "lat": 22.411321, 
+	      	  "lng" : 113.978761
+	      	 },
+	      	{ "name" : "Yuen Long Plaza",
+ 			  "lat" : 22.445138, 
+ 			  "lng" : 114.024099
+	      	 },
+	      	{ "name" : "10 Science Park W Ave" 
+			  ,"lat" : 22.425872 
+			  ,"lng" : 114.210443
+	        }
+	      ]	
+	   },
+	   {
+	   	  "id" : 2,
+	      "name": "New Territory West",
+	      "description": "Tsing Yi -> Tsuen Wan -> Science Park",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "Tsing Yi MTR Station Exit C [7:50 AM]",
+	      		"lat": 22.359888, 
+	      		"lng" : 114.106665
+	      	 },
+	      	{ "name" : "Tsuen Wan Station [8:00 AM]",
+				"lat" : 22.373611, 
+				"lng" : 114.117773
+	      	 },
+	      	{ "name" : "10 Science Park W Ave [8:20 AM]",
+				"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 }
+	      ]	
+	   },
+	   {
+	      "id" : 3,
+	      "name": "Kowloon West",
+	      "description": "Sham Shui Po -> Mei Foo Sun Chuen bridge -> Science Park",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "30 Kweilin Street, Kweilin Mansion [7:55 AM]",
+	      		"lat" : 22.328251,   
+				"lng" : 114.159560
+	      	 },
+	      	{ "name" : "2 Mei Lai Road [8:05 AM]",
+	      		"lat" : 22.337463, 
+				"lng" : 114.141016   
+	      	 },
+	      	{ "name" : "10 Science Park W Ave [8:25 AM]",
+	      		"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 }
+	      ]	
+	   },
+	   {
+	   	  "id" : 4,
+	      "name": "Kowloon East",
+	      "description": "Tseung Kwan O -> Kwun Tong -> Science Park",	
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "Hang Hau MTR Station", 
+				"lat" : 22.315388, 
+				"lng" : 114.263899
+	      	},
+	      	{ "name" : "Exit C1, Kwun Tong MTR Station",
+				"lat" : 22.312437, 
+				"lng" : 114.226743 
+	      	 },
+	      	{ "name" : "10 Science Park W Ave",
+				"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 }
+	      ]
+	   },
+	   {
+	   	  "id" : 5,
+	      "name": "Kowloon Tong",
+	      "description": "Ho Man Tin -> Kowloon Tong -> Science Park",	
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "23 Ho Man Tin Street"
+	  			, "lat" : 22.315621
+				, "lng" : 114.175087
+	      	 },
+	      	{ "name" : "5 To Fuk Road [8:10 AM]" 
+	  			, "lat" : 22.335513 
+				, "lng" : 114.176718
+	      	},
+	      	{ "name" : "10 Science Park W Ave",
+				"lat" : 22.425872, 
+				"lng" : 114.210443
+	      	 }
+	      ]
+	   },
+	   {
+	   	  "id" : 6,
+	      "name": "Hong Kong East",
+	      "description": "Tai Koo -> Chai Wan -> Science Park",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "Tai Koo Shing Road" 
+	      		, "lat" : 22.286183 
+				, "lng" : 114.216942
+	      	},
+	      	{ "name" : "Chai Wan Road" 
+	      		, "lat" : 22.270696 
+				, "lng" : 114.233604
+	      	},
+	      	{ "name" : "10 Science Park W Ave" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}
+	      ]
+	   },
+	   {
+	   	  "id" : 7,
+	      "name": "Hong Kong West",
+	      "description": "Wan Chai -> Sai Wan -> Science Park",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "Hennessy Road" 
+	      		, "lat" : 22.278052 
+				, "lng" : 114.176854
+	      	},
+	      	{ "name" : "22 Des Voeux Road West" 
+	      		, "lat" : 22.287728 
+				, "lng" : 114.147504
+	      	},
+	      	{ "name" : "10 Science Park W Ave" 
+				, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}
+	      ]	
+	   }
+	]
+}

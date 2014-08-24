@@ -1,0 +1,42 @@
+{
+	"routes":  [
+	   {
+	   	  "id" : 17,
+	      "name": "Hong Kong Circular Line",
+	      "description": "Science Park -> Wan Chai -> Quarry Bay -> Chai Wan -> Wan Chai -> Science Park",
+	      "stop" : 6,
+	      "stop_name" : [
+	      	{ "name" : "10 Science Park W Ave, Tai Po" 
+			  ,"lat" : 22.425872 
+			  ,"lng" : 114.210443
+	          ,"time" : "[12:00 Noon]"
+	        },
+	      	{ "name" : "Harbour Centre, Wanchai, Hong Kong"
+	      	  ,"lat": 22.280844 
+	      	  ,"lng" : 114.175604
+	      	  ,"time" : "[12:30 PM]"
+	      	},
+	      	{ "name" : "Warwick House (West Wing), Taikoo Place, Quarry Bay"
+ 			  ,"lat" : 22.287237
+ 			  ,"lng" : 114.211103
+ 			  ,"time" : "[12:40 PM]"
+	      	},
+	      	{ "name" : "Mega I-advantage, Sun Yip Street, Chai Wan" 
+			  ,"lat" : 22.265563 
+			  ,"lng" : 114.246803
+ 			  ,"time" : "[12:50 PM]"
+	        },
+	      	{ "name" : "Harbour Centre, Wanchai, Hong Kong" 
+			  ,"lat" : 22.280844  
+			  ,"lng" : 114.175604
+ 			  ,"time" : "[1:30 PM]"
+	        },
+	      	{ "name" : "10 Science Park W Ave, Tai Po" 
+			  ,"lat" : 22.425872 
+			  ,"lng" : 114.210443
+ 			  ,"time" : "[2:00 PM]"
+	        }
+	      ]	
+	   }
+	]
+}

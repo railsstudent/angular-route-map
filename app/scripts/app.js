@@ -99,6 +99,36 @@
               selectedShift : [ function() { return 'Night'; } ]
             }
           })
+          .state('meeting_route', 
+            { 
+              url: '/meeting_route',
+              templateUrl: 'views/route.html',
+              resolve: { 
+                  routes:  ['Restangular', function(Restangular) {
+                    return Restangular.all('route/meeting').getList().then(
+                      function(data) {
+                        return data;
+                      }, 
+                      function(err) {
+                        console.log(err);
+                        return [];
+                      });
+                    }],
+                    title: [ function() { return 'Meeting Routes'; } ],
+                    prefix : [ function() { return 'meeting'; } ]
+                },
+              controller: 'RouteCtrl'
+            })
+// http://stackoverflow.com/questions/20866931/ui-router-nested-route-controller-isnt-being-called
+        .state('meeting_route_map', 
+          { 
+            url: '/meeting/route_map',
+            templateUrl: 'views/route_map.html',
+            controller: 'RouteMapCtrl',
+            resolve : { 
+              selectedShift : [ function() { return 'Meeting'; } ]
+            }
+          })
         .state('create_route', 
           { 
             url: '/create_route',
@@ -120,7 +150,9 @@
             if (_.isEqual(what, 'route/evening') || 
                 _.isEqual(what, 'route/morning') ||
                 _.isEqual(what, 'route/names/morning') ||
-                _.isEqual(what, 'route/names/evening')) {
+                _.isEqual(what, 'route/names/evening') ||
+                _.isEqual(what, 'route/meeting') ||
+                _.isEqual(what, 'route/names/meeting')) {
                 extractedData = data.routes;
             }
           }

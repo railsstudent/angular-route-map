@@ -1,0 +1,168 @@
+{
+	"routes":  [
+	   {
+	   	  "id" : 1,
+	      "name": "New Territory North",
+	      "description": "Tsuen Mun -> Yuen Long -> Science Park",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "Trend Plaza, Tuen Mun Hueng Sze Wui Road"
+	      	  ,"lat": 22.392008
+	      	  ,"lng" : 113.975700
+	      	  ,"time" : "[7:40 AM]"
+	      	},
+	      	{ "name" : "Sun Yuen Long Center, Long Yat Road, Yuen Long"
+ 			  ,"lat" : 22.445501 
+ 			  ,"lng" : 114.035209
+ 			  ,"time" : "[7:55 AM]"
+	      	},
+	      	{ "name" : "10 Science Park W Ave, Tai Po" 
+			  ,"lat" : 22.425872 
+			  ,"lng" : 114.210443
+	        }
+	      ]	
+	   },
+	   {
+	   	  "id" : 2,
+	      "name": "New Territory West",
+	      "description": "Tsing Yi -> Tsuen Wan -> Science Park",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "Tsing Yi MTR Station, Tsing Yi"
+	      		,"lat": 22.359888
+	      		,"lng" : 114.106665
+	      		,"time" : "[7:50 AM]"
+	      	 },
+	      	{ "name" : "Tsuen Wan Station, Tsuen Wan"
+				,"lat" : 22.373611 
+				,"lng" : 114.117773
+				,"time" : "[8:00 AM]"
+	      	 },
+	      	{ "name" : "10 Science Park W Ave, Tai Po"
+				,"lat" : 22.425872 
+				,"lng" : 114.210443
+	      	 }
+	      ]	
+	   },
+	   {
+	      "id" : 3,
+	      "name": "Kowloon West",
+	      "description": "Sham Shui Po -> Mei Foo Sun Chuen bridge -> Science Park",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "Cheung Sha Wan Road (Junction of Kwelin Street)"
+	      		,"lat" : 22.331083  
+				,"lng" : 114.161913
+				,"time" : "[7:55 AM]"
+	      	 },
+	      	{ "name" : "2 Mei Lai Road, Mei Foo Sun Chuen"
+	      		,"lat" : 22.337463 
+				,"lng" : 114.141016
+				,"time" : "[8:05 AM]"   
+	      	 },
+	      	{ "name" : "10 Science Park W Ave, ,Tai Po"
+	      		,"lat" : 22.425872 
+				,"lng" : 114.210443
+	      	 }
+	      ]	
+	   },
+	   {
+	   	  "id" : 4,
+	      "name": "Kowloon East",
+	      "description": "Tseung Kwan O -> Kwun Tong -> Science Park",	
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "Po Yap Road, Tseung Kwan O MTR Station Exit B1" 
+				,"lat" : 22.306947
+				,"lng" : 114.259162
+				,"time" : "[7:50 AM]"
+	      	},
+	      	{ "name" : "Cross Border Bus Stop at Kwun Tong APM"
+				,"lat" : 22.312234 
+				,"lng" : 114.225113
+				,"time" : "[8:05 AM]" 
+	      	 },
+	      	{ "name" : "10 Science Park W Ave, Tai Po"
+				,"lat" : 22.425872 
+				,"lng" : 114.210443
+	      	 }
+	      ]
+	   },
+	   {
+	   	  "id" : 5,
+	      "name": "Kowloon Tong",
+	      "description": "Hunghom -> Ho Man Tin -> Kowloon Tong -> Science Park",	
+	      "stop" : 4,
+	      "stop_name" : [
+	      	{ "name" : "TSL jewellery, Man Yue Street, Hunghom"
+	  			, "lat" : 22.308865 
+				, "lng" : 114.187708
+				, "time" : "[7:50 AM]"
+	      	},
+	      	{ "name" : "Housing Authority Headquarters, Fat Kwong Street, Ho Man Tin"
+	  			, "lat" : 22.311930 
+				, "lng" : 114.182685
+				, "time" : "[7:55 AM]"
+	      	 },
+	      	{ "name" : "Holy Family Canossian School, Tim Fuk Road, Kowloon Tong" 
+	  			, "lat" : 22.335954
+				, "lng" : 114.177669
+				, "time" : "[8:10 AM]"
+	      	},
+	      	{ "name" : "10 Science Park W Ave, Tai Po"
+				,"lat" : 22.425872 
+				,"lng" : 114.210443
+	      	}
+	      ]
+	   },
+	   {
+	   	  "id" : 6,
+	      "name": "Hong Kong East",
+	      "description": "Siu Sai Wan -> Chai Wan ->  Quarry Bay -> Science Park",
+	      "stop" : 4,
+	      "stop_name" : [
+	      	{ "name" : "Island Resort, Siu Sai Wan" 
+	      		, "lat" : 22.266426 
+				, "lng" : 114.249924
+				, "time" : "[7:45 AM]"
+	      	},	      
+	      	{ "name" : "Public Light Bus Stop at Lok Hin Terrace, Chai Wan Road" 
+	      		, "lat" : 22.264591
+				, "lng" : 114.241247
+				, "time" : "[7:48 AM]"	 
+			},     	
+	      	{ "name" : "Under flyover, Kornhill Plaza" 
+	      		, "lat" : 22.284630
+				, "lng" : 114.216164
+				, "time" : "[8:03 AM]"
+	      	},
+	      	{ "name" : "10 Science Park W Ave, Tai Po" 
+	      		, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}
+	      ]
+	   },
+	   {
+	   	  "id" : 7,
+	      "name": "Hong Kong West",
+	      "description": "Wan Chai -> Sai Wan -> Science Park",
+	      "stop" : 3,
+	      "stop_name" : [
+	      	{ "name" : "China Travel Service (HK) Ltd. 130 Hennessy Road, Wanchai" 
+	      		, "lat" : 22.277342
+				, "lng" : 114.172872
+				, "time" : "[7:40 AM]"
+	      	},
+	      	{ "name" : "The Westwood, No. 12 Belcher's Road, Shek Tong Tsui" 
+	      		, "lat" : 22.286205
+				, "lng" : 114.132802
+				, "time" : "[7:55 AM]"
+	      	},
+	      	{ "name" : "10 Science Park W Ave, Tai Po" 
+				, "lat" : 22.425872 
+				, "lng" : 114.210443
+	      	}
+	      ]	
+	   }
+	]
+}

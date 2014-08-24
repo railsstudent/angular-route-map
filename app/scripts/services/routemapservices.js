@@ -10,12 +10,12 @@
  // http://www.ng-newsletter.com/posts/restangular.html
 var app = angular.module('routeMapServices', []);
 app
-  .value('version', '0.0.1')
+  .value('version', '0.0.2')
   .value('author', 'Connie Leung')
   .factory('RouteService', [ 'Restangular', 
   	function(Restangular) {
   		return {
-  			getShifts : function() { return [ 'Day', 'Night']; },
+  			getShifts : function() { return [ 'Day', 'Night', 'Meeting']; },
 
   			// return a promise
   			getDayLatLngs : function(id) {
@@ -34,5 +34,15 @@ app
         getNightRouteNames : function() {
           return Restangular.all('route/names/evening').getList();
         }, 
+
+        // return a promise
+        getMeetingLatLngs : function(id) {
+          return Restangular.all('route/meeting').get(id);
+        },
+
+        getMeetingRouteNames : function() {
+          return Restangular.all('route/names/meeting').getList();
+        }, 
+
   		};
   }]);

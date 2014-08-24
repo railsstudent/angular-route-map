@@ -4,19 +4,27 @@
 	   	  "id" : 8, 
 	      "name": "New Territory North",
 	      "description" : "Science Park -> Yuen Long -> Tsuen Mun",
-	      "stop" : 3,
+	      "stop" : 4,
 	      "stop_name" : [
-	      	{ "name": "10 Science Park W Ave" 
+	      	{ "name": "10 Science Park W Ave, Tai Po" 
               	, "lat" : 22.425872 
 				, "lng" : 114.210443
+				, "time" : "[6:00 PM]"
 	      	},			
-	      	{ "name" : "Yuen Long Plaza"
-	      		,"lat" : 22.445138 
- 			  	,"lng" : 114.024099
-	      	 },
-	      	{ "name" : "Siu Hong MTR Station (West Rail)" 
-	      		,"lat": 22.411321
-	      	  	,"lng" : 113.978761
+	      	{ "name" : "Sun Yuen Long Center, Long Yat Road, Yuen Long"
+ 			  ,"lat" : 22.445501 
+ 			  ,"lng" : 114.035209
+ 			  ,"time" : "[6:30 PM]"
+ 			}, 
+	      	{ "name" : "Tseng Choi Street, Tuen Mun" 
+	      		,"lat": 22.404523
+	      	  	,"lng" : 113.978695
+	      	  	,"time" : "[6:45 PM]"
+	      	},
+	      	{ "name" : "Trend Plaza, Tuen Mun Hueng Sze Wui Road"
+	      	  ,"lat": 22.392008
+	      	  ,"lng" : 113.975700
+	      	  ,"time" : "[6:50 PM]"
 	      	}
 	      ]	
 	   },
@@ -26,17 +34,20 @@
 	      "description" : "Science Park -> Tsuen Wan -> Tsing Yi",
 	      "stop" : 3,
 	      "stop_name" : [
-			{ "name" : "10 Science Park W Ave" 
+			{ "name" : "10 Science Park W Ave, Tai Po" 
 				, "lat" : 22.425872 
 				, "lng" : 114.210443
+				, "time" : "[6:00 PM]"
 			},
-			{ "name" : "Tsuen Wan Station" 
+			{ "name" : "Tsuen Wan Station, Tsuen Wan" 
 				,"lat" : 22.373611 
 				,"lng" : 114.117773
+				, "time" : "[6:20 PM]"
 			},
-	      	{ "name" : "Tsing Yi MTR Station Exit C" 
+	      	{ "name" : "Tsing Yi MTR Station, Tsing Yi" 
 				,"lat": 22.359888
 	      		,"lng" : 114.106665
+				, "time" : "[6:30 PM]"
 	      	}	
 	      ]	
 	   },
@@ -46,21 +57,25 @@
 	      "description" : "Science Park -> Lai Chi Kok -> Mei Foo bridge -> Sham Shui Po",
 	      "stop" : 4,
 	      "stop_name" : [
-			{ "name" : "10 Science Park W Ave"
+			{ "name" : "10 Science Park W Ave, Tai Po"
 				, "lat" : 22.425872 
 				, "lng" : 114.210443 
+				, "time" : "[6:00 PM]"
 			},
-			{ "name" : "9 Sham Shing Road"
-				, "lat" : 22.333745 
-				, "lng" : 114.149533 
+			{ "name" : "Liberte, 883 Lai Chi Kok Road, Cheung Sha Wan"
+				, "lat" : 22.334793 
+				, "lng" : 114.148917 
+				, "time" : "[6:15 PM]"
 			},
 			{ "name" : "2 Mei Lai Road"
 				, "lat" : 22.337463
 				, "lng" : 114.141016   
+				, "time" : "[6:20 PM]"
 			},
-	      	{ "name" : "30 Kweilin Street, Kweilin Mansion" 
-	      		, "lat" : 22.328251   
-				, "lng" : 114.159560
+	      	{ "name" : "Golden Building, Fuk Wah Street, Sham Shui Po" 
+	      		, "lat" : 22.332009  
+				, "lng" : 114.162215
+				, "time" : "[6:37 PM]"
 	      	}	      	
 	      ]	
 	   },
@@ -70,17 +85,20 @@
 	      "description" : "Science Park -> Kwun Tong -> Tseung Kwan O",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	{ "name" : "10 Science Park W Ave" 
+	      	{ "name" : "10 Science Park W Ave, Tai Po" 
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
+				, "time" : "[6:00 PM]"
 	      	},
-	      	{ "name" : "Kwun Tong MTR Station" 
-	      		, "lat" : 22.312437 
-				, "lng" : 114.226743 
+	      	{ "name" : "Chow Sang Sang, Mut Wah Street,Kwun Tong" 
+	      		, "lat" : 22.315164
+				, "lng" : 114.225183 
+				, "time" : "[6:15 PM]"
 	      	},
-		    { "name" : "Hang Hau MTR Station" 
-		    	, "lat" : 22.315388 
-				, "lng" : 114.263899
+		    { "name" : "Po Yap Road, Tseung Kwan O MTR Exit B1" 
+		    	,"lat" : 22.306947
+				,"lng" : 114.259162
+				, "time" : "[6:30 PM]"
 			}
 	      ]	
 	   },
@@ -90,41 +108,53 @@
 	      "description" : "Science Park -> Kowloon Tong -> Ho Man Tin -> Hung Hom",
 	      "stop" : 4,
 	      "stop_name" : [
-	      	{ "name" : "10 Science Park W Ave" 
+	      	{ "name" : "10 Science Park W Ave, Tai Po" 
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
+				, "time" : "[6:00 PM]"
 	      	},
-	      	{ "name" : "6 To Fuk Road" 
+	      	{ "name" : "To Fuk Road, Kwoloon Tong" 
 	      		, "lat" : 22.335654 
 				, "lng" : 114.176617
+				, "time" : "[6:20 PM]"
 	      	},
-	      	{ "name" : "33 Ho Man Tin Street" 
-	      		, "lat" : 22.315418 
-				, "lng" : 114.175288
+	      	{ "name" : "Ho Man Tin Plaza, Fat KWong Street" 
+	      		, "lat" : 22.315319
+				, "lng" : 114.181531
+				, "time" : "[6:25 PM]"
 	      	},
-	      	{ "name" : "Hung Lai Road"
-	      		, "lat" : 22.304043 
-				, "lng" : 114.184775
+	      	{ "name" : "Fire Station at Fat Kwong Street, (Adjacent to Ka Wai Chuen, Hunghom)"
+	      		, "lat" : 22.309090 
+				, "lng" : 114.186735
+				, "time" : "[6:38 PM]"
 	      	}
 	      ]	
 	   },
 	   {
 	   	  "id" : 13,
 	      "name" : "Hong Kong East",
-	      "description": "Science Park -> Tai Koo -> Chai Wan ",
-	      "stop" : 3,
+	      "description": "Science Park -> Tai Koo -> Chai Wan -> Siu Sai Wan",
+	      "stop" : 4,
 	      "stop_name" : [
-	      	{ "name" : "10 Science Park W Ave"
+	      	{ "name" : "10 Science Park W Ave, Tai Po"
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
-	      	 },
-	      	{ "name" : "Tai Koo Shing Road" 
-	      		, "lat" : 22.286183 
-				, "lng" : 114.216942
+				, "time" : "[6:00 PM]"
 	      	},
-	      	{ "name" : "Chai Wan Road" 
-	      		, "lat" : 22.270696 
-				, "lng" : 114.233604
+			{ "name" : "Kornhill (Taikoo MTR Station Exit E3)" 
+	      		, "lat" : 22.284658
+				, "lng" : 114.215812
+				, "time" : "[6:25 PM]"
+	      	},
+	      	{ "name" : "Walton Estate, Chai Wan (near HSBC)" 
+	      		, "lat" : 22.263934 
+				, "lng" : 114.239905
+				, "time" : "[6:35 PM]"
+	      	},
+	      	{ "name" : "Island Resort, Siu Sai Wan" 
+	      		, "lat" : 22.266426 
+				, "lng" : 114.249924
+				, "time" : "[6:40 PM]"
 	      	}
 	      ]	
 	   },
@@ -134,18 +164,21 @@
 	      "description" : "Science Park -> Wan Chai -> Sai Wan", 
 	      "stop" : 3,
 	      "stop_name" : [
-	      	{ "name" : "10 Science Park W Ave"
+	      	{ "name" : "10 Science Park W Ave, Tai Po"
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
-	      	 },
-			{ "name" : "Hennessy Road" 
-				, "lat" : 22.278052 
-				, "lng" : 114.176854
-			},
-	      	{ "name" : "22 Des Voeux Road West"
-	      		, "lat" : 22.287728 
-				, "lng" : 114.147504
-	      	 }
+				, "time" : "[6:00 PM]"
+	      	},
+	      	{ "name" : "The Westwood, No. 12 Belcher's Road, Shek Tong Tsui" 
+	      		, "lat" : 22.286205
+				, "lng" : 114.132802
+				, "time" : "[6:30 PM]"
+	      	},
+	      	{ "name" : "Hennessy Building, 117-123 Hennessy Road, Wanchai"
+	      		, "lat" : 22.277675 
+				, "lng" : 114.172541
+				, "time" : "[6:50 PM]"
+	      	}
 	      ]
 	   },
 	   {
@@ -154,17 +187,20 @@
 	      "description" : "Science Park -> Mong Kok -> Causeway Bay",
 	      "stop" : 3,
 	      "stop_name" : [
-	      	{ "name" : "10 Science Park W Ave"
+	      	{ "name" : "10 Science Park W Ave, Tai Po"
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
+				, "time" : "[6:00 PM]"
 	      	},
-	      	{ "name" : "Prince Edward Road" 
-	      		, "lat" : 22.325849 
-				, "lng" : 114.178212
+	      	{ "name" : "Prince Edward West, Mongkok (Junction of Tung Choi Street)" 
+	      		, "lat" : 22.324126  
+				, "lng" : 114.169574
+	      		, "time" : "[6:50 PM]"
 	      	},	      	
-	      	{ "name" : "133 King's Road" 
-	      		, "lat" : 22.287807 
-				, "lng" : 114.192741
+	      	{ "name" : "Gloucester Road, Causeway Bay (Near Lok Sing Centre)" 
+	      		, "lat" : 22.279083 
+				, "lng" : 114.172365
+				, "time" : "[7:30 PM]"
 	      	}
 	      ]	
 	   },
@@ -174,17 +210,20 @@
 	      "description" : "Science Park -> Mong Kok -> Causeway Bay",
 	      "stop" : 3,
 	      "stop_name" : [
-			{ "name" : "10 Science Park W Ave"
+			{ "name" : "10 Science Park W Ave, Tai Po"
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
+				, "time" : "[7:30 PM]"
 	      	},
-	      	{ "name" : "Prince Edward Road" 
-	      		, "lat" : 22.325849 
-				, "lng" : 114.178212
-	      	},
-	      	{ "name" : "133 King's Road" 
-	      		, "lat" : 22.287807 
-				, "lng" : 114.192741
+	      	{ "name" : "Prince Edward West, Mongkok (Junction of Tung Choi Street)" 
+	      		, "lat" : 22.324126  
+				, "lng" : 114.169574
+	      		, "time" : "[8:00 PM]"
+	      	},	      	
+	      	{ "name" : "Gloucester Road, Causeway Bay (Near Lok Sing Centre)" 
+	      		, "lat" : 22.279083
+				, "lng" : 114.172365
+				, "time" : "[8:25 PM]"
 	      	}
 	      ]	
 	   }

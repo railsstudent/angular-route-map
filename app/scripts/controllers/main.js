@@ -104,7 +104,10 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
               selectedRoute = RouteService.getDayLatLngs(intId);
             } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Night')) {
               selectedRoute = RouteService.getNightLatLngs(intId);              
+            } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Meeting')) {
+              selectedRoute = RouteService.getMeetingLatLngs(intId);              
             }
+            
             if (!_.isNull(selectedRoute)) {
               selectedRoute.then(function(resultRoute){
                 $scope.dropDownOptions.selectedLatlngs = resultRoute.stop_name;
@@ -168,6 +171,8 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
               selectedRoute = RouteService.getDayLatLngs(intId);
             } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Night')) {
               selectedRoute = RouteService.getNightLatLngs(intId);              
+            } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Meeting')) {
+              selectedRoute = RouteService.getMeetingLatLngs(intId);              
             }
             if (_.isNull(selectedRoute)) {
               $scope.dropDownOptions.selectedLatlngs = null;
@@ -190,6 +195,8 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
               getRouteInfo(RouteService.getDayRouteNames());
             } else if (_.isEqual('Night', val)) {
               getRouteInfo(RouteService.getNightRouteNames());
+            } else if (_.isEqual('Meeting', val)) {
+              getRouteInfo(RouteService.getMeetingRouteNames());
             } 
           };
 

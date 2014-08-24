@@ -107,6 +107,20 @@ router.get('/', function(req, res) {
 	res.sendfile('./app/index.html');
 });
 
+
+router.route('/api/v1/route/meeting')
+	// get all the morning routes (accessed at GET http://localhost:5000/api/v1/route/meeting)
+	.get(function(req, res) {
+		var file = __dirname + '/app/api/v1/meeting_routes.json';
+		sendJson(file, req, res);
+});
+
+router.route('/api/v1/route/meeting/:id')
+	.get(function(req, res) {
+		var file = __dirname + '/app/api/v1/meeting_routes.json';
+		sendOneRoute(file, req, res);
+	});
+
 // http://stackoverflow.com/questions/23860275/javascript-angular-not-loading-when-using-express
 //add this so the browser can GET the bower files
 app.use('/bower_components', express.static(__dirname + '/bower_components'));

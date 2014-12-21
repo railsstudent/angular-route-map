@@ -55,19 +55,16 @@
                       });
                     }],
                     title: [ function() { return 'Day Routes'; } ],
-                    prefix : [ function() { return 'morning'; } ]
+                    prefix : [ function() { return { routeType : 'morning', shiftName: "Day" }; } ]
                 },
               controller: 'RouteCtrl'
             })
 // http://stackoverflow.com/questions/20866931/ui-router-nested-route-controller-isnt-being-called
-        .state('morning_route_map', 
+        .state('route_map', 
           { 
-            url: '/morning/route_map',
+            url: '/:routeType/route_map/:shiftName/:routeId',
             templateUrl: 'views/route_map.html',
-            controller: 'RouteMapCtrl',
-            resolve : { 
-              selectedShift : [ function() { return 'Day'; } ]
-            }
+            controller: 'RouteMapCtrl'
           })
         .state('evening_route', 
           { 
@@ -85,19 +82,9 @@
                       });
                     }],
                     title : [ function() { return 'Night Routes'; } ],
-                    prefix : [ function() { return 'evening'; } ]
+                    prefix : [ function() { return { routeType : 'evening', shiftName : "Night" }; } ]
                 },
             controller: 'RouteCtrl'
-          })
-// http://stackoverflow.com/questions/20866931/ui-router-nested-route-controller-isnt-being-called
-         .state('evening_route_map', 
-          { 
-            url: '/evening/route_map',
-            templateUrl: 'views/route_map.html',
-            controller: 'RouteMapCtrl',
-            resolve : { 
-              selectedShift : [ function() { return 'Night'; } ]
-            }
           })
           .state('meeting_route', 
             { 
@@ -115,20 +102,10 @@
                       });
                     }],
                     title: [ function() { return 'Meeting Routes'; } ],
-                    prefix : [ function() { return 'meeting'; } ]
+                    prefix : [ function() { return { routeType : 'meeting', shiftName : "Meeting" }; } ]
                 },
               controller: 'RouteCtrl'
             })
-// http://stackoverflow.com/questions/20866931/ui-router-nested-route-controller-isnt-being-called
-        .state('meeting_route_map', 
-          { 
-            url: '/meeting/route_map',
-            templateUrl: 'views/route_map.html',
-            controller: 'RouteMapCtrl',
-            resolve : { 
-              selectedShift : [ function() { return 'Meeting'; } ]
-            }
-          })
         .state('create_route', 
           { 
             url: '/create_route',

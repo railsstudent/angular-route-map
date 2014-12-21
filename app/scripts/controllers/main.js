@@ -13,26 +13,33 @@ var app = angular.module('routeMapController', []);
 /* https://github.com/mgonto/restangular#my-response-is-actually-wrapped-with-some-metadata-how-do-i-get-the-data-in-that-case */
 /* http://stackoverflow.com/questions/22012655/restangular-getlist-with-object-containing-embedded-array */
 /* http://www.ng-newsletter.com/posts/restangular.html */
-app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', 
-    function ($scope, routes, title, prefix) {
+app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
+    function ($scope, routes, title, prefix, $state) {
 
       $scope.title = title;
       $scope.routes = routes;  
       $scope.config = {
-          prefix : prefix
+          prefix : prefix,
+          show_stops_text : "Show Stops",
+          collapse_stops_text : "Collapse Stops",
+          show_route_text : "Show Route"
       };
 
       $scope.showButton = [];
-      _(routes.length).times(function() { $scope.showButton.push( { text: 'Show', collapse: true } ); });
+      _(routes.length).times(function() { $scope.showButton.push( { text: $scope.config.show_stops_text, collapse: true } ); });
 
       $scope.setShowButtonText = function(rowIdx) {
-        if (_.isEqual($scope.showButton[rowIdx].text, 'Show')) {
-           $scope.showButton[rowIdx].text = 'Collapse';
+        if (_.isEqual($scope.showButton[rowIdx].text, $scope.config.show_stops_text)) {
+           $scope.showButton[rowIdx].text = $scope.config.collapse_stops_text;
         } else {
-            $scope.showButton[rowIdx].text = 'Show';
+            $scope.showButton[rowIdx].text = $scope.config.show_stops_text;
         }
         $scope.showButton[rowIdx].collapse = !$scope.showButton[rowIdx].collapse;
-      };  
+      }; 
+
+      $scope.gotoRoute = function _gotoRoute(routeId) {
+        $state.go('route_map', { shiftName : prefix.shiftName, routeId : routeId, routeType : prefix.routeType } );
+      } 
     }])
   .controller('MainCtrl', ['$scope',  '$location', '$anchorScroll',
     function($scope, $location, $anchorScroll) {
@@ -44,8 +51,8 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
           $anchorScroll();
       };
   }])
-  .controller('RouteMapCtrl', ['$scope', 'RouteService', 'selectedShift',
-      function($scope, RouteService, selectedShift) {
+  .controller('RouteMapCtrl', ['$scope', 'RouteService', '$stateParams',
+      function($scope, RouteService, $stateParams) {
 
 // https://github.com/angular-ui/angular-google-maps/blob/master/example/example.html
 // https://github.com/nlaplante/angular-google-maps/blob/master/example/assets/scripts/controllers/example.js
@@ -70,9 +77,9 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
             }
         };
 
-        $scope.dropDownOptions ={
-          selectedShift : selectedShift,
-          selectedRoute : undefined,
+        $scope.dropDownOptions = {
+          selectedShift : $stateParams.shiftName,
+          selectedRoute : $stateParams.routeId,
           shifts : RouteService.getShifts(),
           routeArray : [],
           disabled : true,
@@ -87,8 +94,9 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
           $scope.dropDownOptions.disabled = true;
         };
 
-        var successCallback = function _successCallback(arrNames) {
-          var filteredResult = arrNames;
+        var successCallback = function _successCallback(routeIdsAndNames) {
+          var filteredResult = routeIdsAndNames;
+          $scope.dropDownOptions.routeArray = filteredResult;
 
           $scope.dropDownOptions.selectedLatlngs = null;
           $scope.dropDownOptions.disabled = true;                
@@ -96,8 +104,9 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
             filteredResult = [];
           } 
           if (_.isEmpty(filteredResult) === false) {
-            var intId = filteredResult[0].id;
-            $scope.dropDownOptions.selectedRoute = intId;
+
+             var intId = $stateParams.routeId > 0 ? $stateParams.routeId : filteredResult[0].id;
+//             $scope.dropDownOptions.selectedRoute = intId;
 
             var selectedRoute = null;
             if (_.isEqual($scope.dropDownOptions.selectedShift, 'Day')) {
@@ -111,12 +120,12 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
             if (!_.isNull(selectedRoute)) {
               selectedRoute.then(function(resultRoute){
                 $scope.dropDownOptions.selectedLatlngs = resultRoute.stop_name;
-                $scope.dropDownOptions.disabled = false;
+                $scope.dropDownOptions.disabled = ($stateParams.routeId > 0);
+                $scope.dropDownOptions.selectedRoute = resultRoute;
                 calRoute();
               });
             }
           }
-          $scope.dropDownOptions.routeArray = filteredResult;
         };
 
         var getRouteInfo = function(promise) {
@@ -184,18 +193,18 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix',
             }
         };
 
-        $scope.chooseShift = function _chooseShift(val) {
+        $scope.chooseShift = function _chooseShift(shiftName) {
 
             $scope.dropDownOptions.routeArray = [];
             $scope.dropDownOptions.selectedRoute = undefined;
             $scope.dropDownOptions.disabled = true;
             $scope.dropDownOptions.selectedLatlngs = [];
             directionsDisplay.setMap(null);
-            if (_.isEqual('Day', val)) {
+            if (_.isEqual('Day', shiftName)) {
               getRouteInfo(RouteService.getDayRouteNames());
-            } else if (_.isEqual('Night', val)) {
+            } else if (_.isEqual('Night', shiftName)) {
               getRouteInfo(RouteService.getNightRouteNames());
-            } else if (_.isEqual('Meeting', val)) {
+            } else if (_.isEqual('Meeting', shiftName)) {
               getRouteInfo(RouteService.getMeetingRouteNames());
             } 
           };

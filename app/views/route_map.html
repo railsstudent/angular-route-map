@@ -13,8 +13,9 @@
 			<select class="form-control" 
 				ng-disabled="dropDownOptions.disabled"
 				ng-model="dropDownOptions.selectedRoute"
-				ng-change="chooseRoute(dropDownOptions.selectedRoute)">
-				<option ng-repeat="route in dropDownOptions.routeArray" value='{{route.id}}'>{{route.name}}</option>
+				ng-change="chooseRoute(dropDownOptions.selectedRoute.id)"
+				ng-options="route.name for route in dropDownOptions.routeArray track by route.id">
+				<!-- http://stackoverflow.com/questions/15326164/setting-the-selected-item-in-angularjs-select-directive -->
 			</select>
   			<div class="row">&nbsp;</div>
 		</div>

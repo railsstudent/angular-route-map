@@ -16,7 +16,8 @@
 			    	<td>{{$index+1}}.</td><td>{{route.name}}</td>
 			    	<td>
 			    		{{route.description}}  
-			    		<a href ng-click="setShowButtonText($index)">{{  showButton[$index].text   }}</a>
+			    		<a href ng-click="setShowButtonText($index)">{{  showButton[$index].text  }}</a> |
+			    		<a href ng-click="gotoRoute(route.id)">{{  config.show_route_text  }}</a>
 			    		<ul class='hide_bullet' ng-show="!showButton[$index].collapse">
 			    			<li ng-repeat='my_stop in route.stop_name'>
 			    				{{$index + 1}}. {{my_stop.name}} <b>{{my_stop.time}}</b>
@@ -27,7 +28,7 @@
 			    </tr>
 			  </table>	
 		</div>
-		<button type="button" class="btn btn-default" ui-sref="{{config.prefix}}_route_map">
+		<button type="button" class="btn btn-default" ui-sref="route_map({ routeType : config.prefix.routeType, shiftName : config.prefix.shiftName })">
 			Route Map <i class="fa fa-road"></i>
 		</button>
 	</p>

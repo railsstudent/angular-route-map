@@ -10,7 +10,7 @@
  // http://www.ng-newsletter.com/posts/restangular.html
 var app = angular.module('routeMapServices', []);
 app
-  .value('version', '0.0.2')
+  .value('version', '0.0.3')
   .value('author', 'Connie Leung')
   .factory('RouteService', [ 'Restangular', 
   	function(Restangular) {

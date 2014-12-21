@@ -50,6 +50,24 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
           $location.hash(elemId);
           $anchorScroll();
       };
+
+      var githubBaseUrl = function _ghBaseUrl() {
+            return $location.protocol() + "://" + $location.host() + ":" 
+                +  $location.port() + "/vendor/github-btn.html?";        
+      }
+
+      $scope.githubStarButton = function _gitBtnFullUrl() { 
+            return githubBaseUrl() + "user=railsstudent&repo=angular-route-map&type=watch";
+      }
+
+      $scope.githubFollowButton = function _gitBtnFullUrl() { 
+            return githubBaseUrl() + "user=railsstudent&type=follow";
+      }
+
+      $scope.githubForkButton = function _gitBtnFullUrl() { 
+            return githubBaseUrl() + "user=railsstudent&repo=angular-route-map&type=fork";
+      }
+
   }])
   .controller('RouteMapCtrl', ['$scope', 'RouteService', '$stateParams',
       function($scope, RouteService, $stateParams) {

@@ -103,6 +103,8 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
           disabled : true,
           selectedLatlngs : []
         };
+
+        $scope.errMsg = "";
         
         var errorCallback = function _errorCallback(err) {
           console.log(err);
@@ -118,13 +120,14 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
 
           $scope.dropDownOptions.selectedLatlngs = null;
           $scope.dropDownOptions.disabled = true;                
+          $scope.errMsg = "";
+
           if (_.isNull(filteredResult)) {
             filteredResult = [];
           } 
           if (_.isEmpty(filteredResult) === false) {
 
              var intId = $stateParams.routeId > 0 ? $stateParams.routeId : filteredResult[0].id;
-//             $scope.dropDownOptions.selectedRoute = intId;
 
             var selectedRoute = null;
             if (_.isEqual($scope.dropDownOptions.selectedShift, 'Day')) {
@@ -137,13 +140,23 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
             
             if (!_.isNull(selectedRoute)) {
               selectedRoute.then(function(resultRoute){
-                $scope.dropDownOptions.selectedLatlngs = resultRoute.stop_name;
-                $scope.dropDownOptions.disabled = ($stateParams.routeId > 0);
-                $scope.dropDownOptions.selectedRoute = resultRoute;
-                calRoute();
+                if (_.isUndefined(resultRoute)) {
+                  $scope.errMsg = "Route with route id " + intId +  " does not exist.";
+                } else {
+                  $scope.dropDownOptions.selectedLatlngs = resultRoute.stop_name;
+                  $scope.dropDownOptions.disabled = ($stateParams.routeId > 0);
+                  $scope.dropDownOptions.selectedRoute = resultRoute;
+                  calRoute();
+                }
               });
+            } else {
+              $scope.errMsg = "Route with route id " + intId +  " does not exist.";
             }
           }
+        };
+
+        $scope.closeAlert = function _closeAlert() {
+          $scope.errMsg = "";
         };
 
         var getRouteInfo = function(promise) {

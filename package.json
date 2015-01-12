@@ -71,7 +71,6 @@
     "npm" : "2.1.x"
   },
   "scripts": {
-    "preinstall" : "npm install",
     "postinstall" : "bower install && grunt build",
     "test": "grunt test"
   }

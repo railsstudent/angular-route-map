@@ -4,3 +4,4 @@ node_modules
 test
 bower_components
 npm-debug.log
+dist

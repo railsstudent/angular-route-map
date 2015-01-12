@@ -56,7 +56,8 @@ var sendOneRoute = function _readFile(filename, req, res) {
 router.route('/api/v1/route/morning')
 	// get all the morning routes (accessed at GET http://localhost:5000/api/v1/route/morning)
 	.get(function(req, res) {
-		var file = __dirname + '/app/api/v1/morning_routes.json';
+//		var file = __dirname + '/app/api/v1/morning_routes.json';
+		var file = __dirname + '/dist/api/v1/morning_routes.json';
 		sendJson(file, req, res);
 	});
 
@@ -64,7 +65,8 @@ router.route('/api/v1/route/morning/:id')
 	// get all the morning routes (accessed at
 	// GET http://localhost:5000/api/v1/route/morning/:id)
 	.get(function(req, res) {
-		var file = __dirname + '/app/api/v1/morning_routes.json';
+//		var file = __dirname + '/app/api/v1/morning_routes.json';
+		var file = __dirname + '/dist/api/v1/morning_routes.json';
 		sendOneRoute(file, req, res);
 	});
 
@@ -73,7 +75,8 @@ router.route('/api/v1/route/names/:shift')
 	// (accessed at GET http://localhost:5000/api/v1/route/names/:shift)
 	.get(function(req, res) {
 
-		var file = __dirname + '/app/api/v1/' + req.params.shift + '_routes.json';
+//		var file = __dirname + '/app/api/v1/' + req.params.shift + '_routes.json';
+		var file = __dirname + '/dist/api/v1/' + req.params.shift + '_routes.json';
 		fs.readFile(file, 'utf8', function (err, data) {
 			if (err) {
 				console.log('Error: ' + err);
@@ -92,39 +95,45 @@ router.route('/api/v1/route/names/:shift')
 // get all the evening routes (accessed at GET http://localhost:5000/api/v1/route/evening)
 router.route('/api/v1/route/evening')
 	.get(function(req, res) {
-		var file = __dirname + '/app/api/v1/evening_routes.json';
+//		var file = __dirname + '/app/api/v1/evening_routes.json';
+		var file = __dirname + '/dist/api/v1/evening_routes.json';
 		sendJson(file, req, res);
 	});
 
 router.route('/api/v1/route/evening/:id')
 	.get(function(req, res) {
-		var file = __dirname + '/app/api/v1/evening_routes.json';
+//		var file = __dirname + '/app/api/v1/evening_routes.json';
+		var file = __dirname + '/dist/api/v1/evening_routes.json';
 		sendOneRoute(file, req, res);
 	});
 
 // home page route (http://localhost:5000)
 router.get('/', function(req, res) {
-	res.sendfile('./app/index.html');
+//	res.sendfile('./app/index.html');
+	res.sendfile('index.html');
 });
 
 
 router.route('/api/v1/route/meeting')
 	// get all the morning routes (accessed at GET http://localhost:5000/api/v1/route/meeting)
 	.get(function(req, res) {
-		var file = __dirname + '/app/api/v1/meeting_routes.json';
+//		var file = __dirname + '/app/api/v1/meeting_routes.json';
+		var file = __dirname + '/dist/api/v1/meeting_routes.json';
 		sendJson(file, req, res);
 });
 
 router.route('/api/v1/route/meeting/:id')
 	.get(function(req, res) {
-		var file = __dirname + '/app/api/v1/meeting_routes.json';
+//		var file = __dirname + '/app/api/v1/meeting_routes.json';
+		var file = __dirname + '/dist/api/v1/meeting_routes.json';
 		sendOneRoute(file, req, res);
 	});
 
 // http://stackoverflow.com/questions/23860275/javascript-angular-not-loading-when-using-express
 //add this so the browser can GET the bower files
-app.use('/bower_components', express.static(__dirname + '/bower_components'));
-app.use(express.static(__dirname + '/app'));
+//app.use('/bower_components', express.static(__dirname + '/bower_components'));
+//app.use(express.static(__dirname + '/app'));
+app.use(express.static(__dirname + '/dist'));
 
 // http://stackoverflow.com/questions/19687667/making-ajax-call-angular-to-node-js-express-js
 /*var allowCrossDomain = function (req, res, next) {

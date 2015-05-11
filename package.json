@@ -26,7 +26,6 @@
     "grunt-filerev": "^0.2.1",
     "grunt-google-cdn": "^0.4.0",
     "grunt-newer": "^0.7.0",
-    "grunt-ngmin": "^0.0.3",
     "grunt-serve": "^0.1.3",
     "grunt-svgmin": "^0.4.0",
     "grunt-usemin": "^2.1.1",
@@ -41,8 +40,8 @@
     "url": "https://github.com/railsstudent/angular-route-map.git"
   },
   "engines": {
-    "node": "0.10.x",
-    "npm": "2.1.x"
+    "node": "0.12.x",
+    "npm": "2.9.x"
   },
   "scripts": {
     "postinstall": "bower install && grunt build",

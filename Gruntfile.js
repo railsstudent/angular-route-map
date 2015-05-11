@@ -118,6 +118,17 @@ module.exports = function (grunt) {
       dist: {
         options: {
           open: true,
+          middleware: function (connect) {
+            return [
+              connect.static('.tmp'),
+              connect().use(
+                '/bower_components',
+                connect.static('./bower_components')
+              ),
+              connect.static(appConfig.app),
+              proxySnippet
+            ];
+          },
           base: '<%= yeoman.dist %>'
         }
       }
@@ -396,7 +407,9 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
+      return grunt.task.run(['build', 
+        'configureProxies:server', // added just before connect
+        'connect:dist:keepalive']);
     }
 
     grunt.task.run([
@@ -420,6 +433,7 @@ module.exports = function (grunt) {
     'clean:server',
     'concurrent:test',
     'autoprefixer',
+    'configureProxies:server', // added just before connect
     'connect:test',
     'karma'
   ]);

@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h1 class="text-center">Take you to Science Park</h1><br/>
+  <h2 class="text-center">Take you to Science Park</h2><br/>
   <p class="lead">
   	<img class="center-block" src="../images/shuttle_bus.png" alt="shuttle bus"></img>
   	<p class="text-center">
@@ -9,11 +9,6 @@
 
   <!-- http://stackoverflow.com/questions/22481463/div-not-center-using-class-center-block-in-bootstrap -->
   <div class="text-center">
-  	<p class="center-block">
-	  	<button type="button" class="btn btn-success" ng-click="scrollToElement('learn_more')">
-	  		Learn More
-	  	</button>
-  	</p>
   	<!-- https://github.com/mdo/github-buttons -->
   	<iframe allowtransparency="true" frameborder="0" scrolling="no"
   		src="//platform.twitter.com/widgets/follow_button.html?screen_name=con_leung&show_count=true"
@@ -26,9 +21,14 @@
   	<iframe src="{{ githubFollowButton() }}"
     		allowtransparency="true" frameborder="0" scrolling="0" width="145" height="20"></iframe>
   	<iframe src="{{githubForkButton()}}"  allowtransparency="true" frameborder="0" scrolling="0" width="50" height="20"></iframe>
-    <h3 class="text-center">
+    <p class="center-block">
+      <button type="button" class="btn btn-success" ng-click="scrollToElement('learn_more')">
+        Learn More
+      </button>
+    </p>
+    <h4 class="text-center">
         * Always show your staff card or driver can refuse to let you get on board of the vehicle. *
-    </h3>
+    </h4>
   </div>
 </div>
 

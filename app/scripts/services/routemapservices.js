@@ -10,37 +10,37 @@
  // http://www.ng-newsletter.com/posts/restangular.html
 var app = angular.module('routeMapServices', []);
 app
-  .value('version', '0.0.6')
+  .value('version', '0.0.7')
   .value('author', 'Connie Leung')
   .factory('RouteService', [ 'Restangular', 
   	function(Restangular) {
   		return {
-  			getShifts : function() { return [ 'Day', 'Night', 'Meeting']; },
+  			getShifts : function _getShifts() { return [ 'Day', 'Night', 'Meeting']; },
 
   			// return a promise
-  			getDayLatLngs : function(id) {
+  			getDayLatLngs : function _getDayLatLngs(id) {
   				return Restangular.all('route/morning').get(id);
   			},
 
-        getDayRouteNames : function() {
+        getDayRouteNames : function _getDayRouteNames() {
           return Restangular.all('route/names/morning').getList();
         },
 
   			// return a promise
-  			getNightLatLngs : function(id) {
+  			getNightLatLngs : function _getNightLatLngs(id) {
   				return Restangular.all('route/evening').get(id);
   			},
 
-        getNightRouteNames : function() {
+        getNightRouteNames : function _getNightRouteNames() {
           return Restangular.all('route/names/evening').getList();
         }, 
 
         // return a promise
-        getMeetingLatLngs : function(id) {
+        getMeetingLatLngs : function _getMeetingLatLngs(id) {
           return Restangular.all('route/meeting').get(id);
         },
 
-        getMeetingRouteNames : function() {
+        getMeetingRouteNames : function _getMeetingRouteNames() {
           return Restangular.all('route/names/meeting').getList();
         }, 
 

@@ -99,12 +99,6 @@ module.exports = (function () {
 			sendOneRoute(file, req, res);
 		});
 
-	// home page route (http://localhost:5000)
-	/*router.get('/', function(req, res) {
-		res.sendfile('index.html');
-	});*/
-
-
 	router.route('/route/meeting')
 		// get all the morning routes (accessed at GET http://localhost:5000/api/v1/route/meeting)
 		.get(function(req, res) {
@@ -117,6 +111,11 @@ module.exports = (function () {
 			var file = __dirname + '/dist/api/v1/meeting_routes.json';
 			sendOneRoute(file, req, res);
 		});
+
+	router.route('/route/*')
+			.all(function(req, res) {
+				res.send(501, 'Not Implemented');
+			});
 
 	return router;
 })();

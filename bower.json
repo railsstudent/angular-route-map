@@ -15,7 +15,7 @@
     "angular-google-maps" : "1.2.0",
     "ngAutocomplete" : "1.0.0",
     "fontawesome" : "4.2.0",
-    "angular-drag-and-drop-lists" : "^1.2.0"
+    "angular-ui-sortable" : "~0.13.x"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

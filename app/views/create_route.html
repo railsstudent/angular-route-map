@@ -9,30 +9,32 @@
 		<div class="col-md-4">
 			<!-- http://www.benlesh.com/2012/11/angular-js-form-validation.html -->
 			<!-- http://www.benlesh.com/2013/03/angular-js-validating-form-elements-in.html -->
-			<form name="myForm" ng-submit="calRoute()"  role="form">
+			<form name="myForm" ng-submit="calRoute()" role="form">
 				<div class="form-group">
 					<button type="button" class="btn btn-default" ng-click="addRow()" class="form-control">
 						Add Place <i class="fa fa-plus"></i>
 					</button>
 				</div>
-				<div ng-repeat="route in routes" ng-form="subForm">
-					<div class="input-group">
-						<span class="input-group-addon">{{$index + 1}})</span>
-						<input type="text" name="address{{$index+1}}" placeholder="Input address" class="form-control" required ng-model='route.name' value='{{route.name}}' ng-autocomplete='route.name'  options='options'>
-						</input>
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" ng-click="insertAfterRow($index)" tooltip="Insert after this row">
-								<i class="fa fa-plus"></i>
-							</button>
-						</span>
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" ng-click="removeRow($index)" tooltip="Delete current row">
-								<i class="fa fa-minus"></i>
-							</button>
-						</span>
-					</div>
-					<div class="form-group">
-						<span class="error" ng-show="subForm.address.$error.required">Required!</span>
+				<div ui-sortable ng-model="routes">
+					<div ng-repeat="route in routes" ng-form="subForm">
+						<div class="input-group">
+							<span class="input-group-addon">{{$index + 1}})</span>
+							<input type="text" name="address{{$index+1}}" placeholder="Input address" class="form-control" required ng-model='route.name' value='{{route.name}}' ng-autocomplete='route.name'  options='options'>
+							</input>
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-default" ng-click="insertAfterRow($index)" tooltip="Insert after this row">
+									<i class="fa fa-plus"></i>
+								</button>
+							</span>
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-default" ng-click="removeRow($index)" tooltip="Delete current row">
+									<i class="fa fa-minus"></i>
+								</button>
+							</span>
+						</div>
+						<div class="form-group">
+							<span class="error" ng-show="subForm.address.$error.required">Required!</span>
+						</div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -41,7 +43,7 @@
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-success" ng-disabled="myForm.$invalid">Calculate Route</button>
-					<span class="help-block">Find the driving route and distance to 10W Hong Kong Science Park (Gold Egg).</span>
+					<span class="help-block">Find the driving route and distance to 10W Hong Kong Science Park (Charles K. Kao Auditorium).</span>
 				</div>
 			</form>
 		</div>

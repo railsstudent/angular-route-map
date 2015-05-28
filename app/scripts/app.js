@@ -19,7 +19,8 @@
     'ui.bootstrap',
     'restangular',
     'google-maps',
-    'ngAutocomplete'
+    'ngAutocomplete',
+    'ui.sortable'
   ]);
 
 

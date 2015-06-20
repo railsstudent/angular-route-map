@@ -1,8 +1,20 @@
 {
   "name": "angularroutemap",
   "description": "Shuttle Bus Routing Application",
-  "version": "0.0.2",
-  "dependencies": {
+  "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/railsstudent/angular-route-map.git"
+  },
+  "engines": {
+    "node": "^0.12.x",
+    "npm": "^2.10.x"
+  },
+  "scripts": {
+    "postinstall": "bower install && grunt build",
+    "test": "grunt test"
+  },
+  "devDependencies": {
     "bower": "^1.4.1",
     "compression": "^1.4.3",
     "connect-timeout": "^1.6.2",
@@ -36,23 +48,11 @@
     "logfmt": "^1.1.2",
     "time-grunt": "^0.3.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/railsstudent/angular-route-map.git"
-  },
-  "engines": {
-    "node": "0.12.x",
-    "npm": "2.9.x"
-  },
-  "scripts": {
-    "postinstall": "bower install && grunt build",
-    "test": "grunt test"
-  },
-  "devDependencies": {
-    "grunt-ng-annotate": "^0.9.2"
-  },
   "keywords": [
+    "angularjs google map",
     "angularjs app",
-    "deploy to heroku"
+    "deploy to heroku",
+    "nodejs",
+    "expression framework"
   ]
 }

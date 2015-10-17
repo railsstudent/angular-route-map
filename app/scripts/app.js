@@ -24,8 +24,7 @@
   ]);
 
 
-  app.config(['$stateProvider', '$urlRouterProvider', 
-    function ($stateProvider, $urlRouterProvider) {
+  app.config(function ($stateProvider, $urlRouterProvider) {
 
       /////////////////////////////
       // Redirects and Otherwise //
@@ -56,7 +55,7 @@
                       });
                     }],
                     title: [ function() { return 'Day Routes'; } ],
-                    prefix : [ function() { return { routeType : 'morning', shiftName: "Day" }; } ]
+                    prefix : [ function() { return { routeType : 'morning', shiftName: 'Day' }; } ]
                 },
               controller: 'RouteCtrl'
             })
@@ -83,7 +82,7 @@
                       });
                     }],
                     title : [ function() { return 'Night Routes'; } ],
-                    prefix : [ function() { return { routeType : 'evening', shiftName : "Night" }; } ]
+                    prefix : [ function() { return { routeType : 'evening', shiftName : 'Night' }; } ]
                 },
             controller: 'RouteCtrl'
           })
@@ -103,7 +102,7 @@
                       });
                     }],
                     title: [ function() { return 'Meeting Routes'; } ],
-                    prefix : [ function() { return { routeType : 'meeting', shiftName : "Meeting" }; } ]
+                    prefix : [ function() { return { routeType : 'meeting', shiftName : 'Meeting' }; } ]
                 },
               controller: 'RouteCtrl'
             })
@@ -113,10 +112,10 @@
             templateUrl: 'views/create_route.html',
             controller: 'CreateRouteCtrl'
           });
-    }]);
+    });
 
 /* https://github.com/mgonto/restangular#my-response-is-actually-wrapped-with-some-metadata-how-do-i-get-the-data-in-that-case */
-  app.config (['RestangularProvider', function(RestangularProvider) {
+  app.config (function(RestangularProvider) {
       RestangularProvider.setBaseUrl('/api/v1');
 
       // add a response intereceptor
@@ -137,7 +136,7 @@
           return extractedData;
     });
 
-  }]);
+  });
 
    
 

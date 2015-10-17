@@ -10,10 +10,9 @@
  // http://www.ng-newsletter.com/posts/restangular.html
 var app = angular.module('routeMapServices', []);
 app
-  .value('version', '0.0.7')
+  .value('version', '0.0.8')
   .value('author', 'Connie Leung')
-  .factory('RouteService', [ 'Restangular', 
-  	function(Restangular) {
+  .factory('RouteService', function(Restangular) {
   		return {
   			getShifts : function _getShifts() { return [ 'Day', 'Night', 'Meeting']; },
 
@@ -45,4 +44,4 @@ app
         }, 
 
   		};
-  }]);
+  });

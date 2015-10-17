@@ -13,16 +13,15 @@ var app = angular.module('routeMapController', []);
 /* https://github.com/mgonto/restangular#my-response-is-actually-wrapped-with-some-metadata-how-do-i-get-the-data-in-that-case */
 /* http://stackoverflow.com/questions/22012655/restangular-getlist-with-object-containing-embedded-array */
 /* http://www.ng-newsletter.com/posts/restangular.html */
-app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
-    function ($scope, routes, title, prefix, $state) {
+app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
 
       $scope.title = title;
       $scope.routes = routes;  
       $scope.config = {
           prefix : prefix,
-          show_stops_text : "Show Stops",
-          collapse_stops_text : "Collapse Stops",
-          show_route_text : "Show Route"
+          show_stops_text : 'Show Stops',
+          collapse_stops_text : 'Collapse Stops',
+          show_route_text : 'Show Route'
       };
 
       $scope.showButton = [];
@@ -40,9 +39,8 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
       $scope.gotoRoute = function _gotoRoute(routeId) {
         $state.go('route_map', { shiftName : prefix.shiftName, routeId : routeId, routeType : prefix.routeType } );
       } 
-    }])
-  .controller('MainCtrl', ['$scope',  '$location', '$anchorScroll',
-    function($scope, $location, $anchorScroll) {
+    })
+  .controller('MainCtrl', function($scope, $location, $anchorScroll) {
       
       $scope.scrollToElement = function(elemId) {
           // set the location.hash to the id of
@@ -52,25 +50,24 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
       };
 
       var githubBaseUrl = function _ghBaseUrl() {
-            return $location.protocol() + "://" + $location.host() + ":" 
-                +  $location.port() + "/vendor/github-btn.html?";        
+            return $location.protocol() + '://' + $location.host() + ':' + 
+              $location.port() + '/vendor/github-btn.html?';        
       }
 
       $scope.githubStarButton = function _gitBtnFullUrl() { 
-            return githubBaseUrl() + "user=railsstudent&repo=angular-route-map&type=watch";
+            return githubBaseUrl() + 'user=railsstudent&repo=angular-route-map&type=watch';
       }
 
       $scope.githubFollowButton = function _gitBtnFullUrl() { 
-            return githubBaseUrl() + "user=railsstudent&type=follow";
+            return githubBaseUrl() + 'user=railsstudent&type=follow';
       }
 
       $scope.githubForkButton = function _gitBtnFullUrl() { 
-            return githubBaseUrl() + "user=railsstudent&repo=angular-route-map&type=fork";
+            return githubBaseUrl() + 'user=railsstudent&repo=angular-route-map&type=fork';
       }
 
-  }])
-  .controller('RouteMapCtrl', ['$scope', 'RouteService', '$stateParams',
-      function($scope, RouteService, $stateParams) {
+  })
+  .controller('RouteMapCtrl', function($scope, RouteService, $stateParams) {
 
 // https://github.com/angular-ui/angular-google-maps/blob/master/example/example.html
 // https://github.com/nlaplante/angular-google-maps/blob/master/example/assets/scripts/controllers/example.js
@@ -104,7 +101,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
           selectedLatlngs : []
         };
 
-        $scope.errMsg = "";
+        $scope.errMsg = '';
         
         var errorCallback = function _errorCallback(err) {
           console.log(err);
@@ -141,7 +138,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
             if (!_.isNull(selectedRoute)) {
               selectedRoute.then(function(resultRoute){
                 if (_.isUndefined(resultRoute)) {
-                  $scope.errMsg = "Route with route id " + intId +  " does not exist.";
+                  $scope.errMsg = 'Route with route id ' + intId +  ' does not exist.';
                 } else {
                   $scope.dropDownOptions.selectedLatlngs = resultRoute.stop_name;
                   $scope.dropDownOptions.disabled = ($stateParams.routeId > 0);
@@ -150,7 +147,7 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
                 }
               });
             } else {
-              $scope.errMsg = "Route with route id " + intId +  " does not exist.";
+              $scope.errMsg = 'Route with route id ' + intId +  ' does not exist.';
             }
           }
         };
@@ -242,9 +239,8 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
 
         $scope.chooseShift($scope.dropDownOptions.selectedShift);  
 
-      }])
-  .controller('CreateRouteCtrl', ['$scope',  
-      function($scope) {
+      })
+  .controller('CreateRouteCtrl', function($scope) {
 
         var rendererOptions = {
           suppressMarkers : true,
@@ -479,4 +475,4 @@ app.controller('RouteCtrl', ['$scope', 'routes', 'title', 'prefix', '$state',
               } // for k
             }  // end if
         };  // end of calRoute function
-      }]);
+      });

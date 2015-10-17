@@ -9,14 +9,14 @@
 var app = angular.module('routeMapDirective', []);
 
 app
-  .directive('appVersion', ['version', function(version) {
+  .directive('appVersion', function(version) {
     return function(scope, elm) {
       elm.text(version);
     };
-   }])
-  .directive('appAuthor', ['author', function(author) {
+   })
+  .directive('appAuthor', function(author) {
     return function(scope, elm){
         elm.text(author);
     };
-  }]);
+  });
 

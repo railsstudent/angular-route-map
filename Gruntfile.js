@@ -339,8 +339,7 @@ module.exports = function (grunt) {
             'images/*',
             'fonts/*',
             'api/v1/*',
-            'scripts/vendor/*',
-            'styles/{,*/}*.css'
+            'scripts/vendor/*'
           ]
         }, {
           expand: true,
@@ -363,7 +362,7 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
-        src: '{**/}*.css'
+        src: '{,*/}*.css'
       }
     },
 

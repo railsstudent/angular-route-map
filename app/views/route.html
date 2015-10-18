@@ -19,7 +19,7 @@
 			    		<a href ng-click="setShowButtonText($index)">{{  showButton[$index].text  }}</a> |
 			    		<a href ng-click="gotoRoute(route.id)">{{  config.showRouteText  }}</a>
 			    		<ul class='hide_bullet' ng-show="!showButton[$index].collapse">
-			    			<li ng-repeat='my_stop in route.stop_name'>
+			    			<li ng-repeat='my_stop in route.stopName'>
 			    				{{$index + 1}}. {{my_stop.name}} <b>{{my_stop.time}}</b>
 			    			</li>
 			    		</ul>

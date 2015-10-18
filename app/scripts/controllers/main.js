@@ -140,7 +140,7 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
                 if (_.isUndefined(resultRoute)) {
                   $scope.errMsg = 'Route with route id ' + intId +  ' does not exist.';
                 } else {
-                  $scope.dropDownOptions.selectedLatlngs = resultRoute.stop_name;
+                  $scope.dropDownOptions.selectedLatlngs = resultRoute.stopName;
                   $scope.dropDownOptions.disabled = ($stateParams.routeId > 0);
                   $scope.dropDownOptions.selectedRoute = resultRoute;
                   calRoute();
@@ -215,7 +215,7 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
               $scope.dropDownOptions.selectedLatlngs = null;
             } else {
               selectedRoute.then(function(resultRoute) {
-                $scope.dropDownOptions.selectedLatlngs = resultRoute.stop_name;  
+                $scope.dropDownOptions.selectedLatlngs = resultRoute.stopName;  
                 calRoute();
               });
             }

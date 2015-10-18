@@ -5,7 +5,7 @@
 	      "name": "New Territory North",
 	      "description" : "Science Park -> Yuen Long -> Tsuen Mun",
 	      "stop" : 4,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name": "10 Science Park W Ave, Tai Po" 
               	, "lat" : 22.425872 
 				, "lng" : 114.210443

@@ -19,26 +19,26 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
       $scope.routes = routes;  
       $scope.config = {
           prefix : prefix,
-          show_stops_text : 'Show Stops',
-          collapse_stops_text : 'Collapse Stops',
-          show_route_text : 'Show Route'
+          showStopsText : 'Show Stops',
+          collapseStopsText : 'Collapse Stops',
+          showRouteText : 'Show Route'
       };
 
       $scope.showButton = [];
-      _(routes.length).times(function() { $scope.showButton.push( { text: $scope.config.show_stops_text, collapse: true } ); });
+      _(routes.length).times(function() { $scope.showButton.push( { text: $scope.config.showStopsText, collapse: true } ); });
 
       $scope.setShowButtonText = function(rowIdx) {
-        if (_.isEqual($scope.showButton[rowIdx].text, $scope.config.show_stops_text)) {
-           $scope.showButton[rowIdx].text = $scope.config.collapse_stops_text;
+        if (_.isEqual($scope.showButton[rowIdx].text, $scope.config.showStopsText)) {
+           $scope.showButton[rowIdx].text = $scope.config.collapseStopsText;
         } else {
-            $scope.showButton[rowIdx].text = $scope.config.show_stops_text;
+            $scope.showButton[rowIdx].text = $scope.config.showStopsText;
         }
         $scope.showButton[rowIdx].collapse = !$scope.showButton[rowIdx].collapse;
       }; 
 
       $scope.gotoRoute = function _gotoRoute(routeId) {
         $state.go('route_map', { shiftName : prefix.shiftName, routeId : routeId, routeType : prefix.routeType } );
-      } 
+      };
     })
   .controller('MainCtrl', function($scope, $location, $anchorScroll) {
       
@@ -52,19 +52,19 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
       var githubBaseUrl = function _ghBaseUrl() {
             return $location.protocol() + '://' + $location.host() + ':' + 
               $location.port() + '/vendor/github-btn.html?';        
-      }
+      };
 
       $scope.githubStarButton = function _gitBtnFullUrl() { 
             return githubBaseUrl() + 'user=railsstudent&repo=angular-route-map&type=watch';
-      }
+      };
 
       $scope.githubFollowButton = function _gitBtnFullUrl() { 
             return githubBaseUrl() + 'user=railsstudent&type=follow';
-      }
+      };
 
       $scope.githubForkButton = function _gitBtnFullUrl() { 
             return githubBaseUrl() + 'user=railsstudent&repo=angular-route-map&type=fork';
-      }
+      };
 
   })
   .controller('RouteMapCtrl', function($scope, RouteService, $stateParams) {
@@ -117,7 +117,7 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
 
           $scope.dropDownOptions.selectedLatlngs = null;
           $scope.dropDownOptions.disabled = true;                
-          $scope.errMsg = "";
+          $scope.errMsg = '';
 
           if (_.isNull(filteredResult)) {
             filteredResult = [];

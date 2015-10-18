@@ -24,7 +24,7 @@
   ]);
 
 
-  app.config(function ($stateProvider, $urlRouterProvider) {
+  app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
       /////////////////////////////
       // Redirects and Otherwise //
@@ -112,6 +112,9 @@
             templateUrl: 'views/create_route.html',
             controller: 'CreateRouteCtrl'
           });
+
+        // use the HTML5 History API
+        $locationProvider.html5Mode(true);
     });
 
 /* https://github.com/mgonto/restangular#my-response-is-actually-wrapped-with-some-metadata-how-do-i-get-the-data-in-that-case */

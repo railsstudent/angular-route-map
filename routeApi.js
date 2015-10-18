@@ -57,7 +57,7 @@ module.exports = (function () {
 			sendJson(file, req, res);
 		});
 
-	router.route('/route/morning/:id')
+	router.route('/route/morning/:id.json')
 		// get all the morning routes (accessed at
 		// GET http://localhost:5000/api/v1/route/morning/:id)
 		.get(function(req, res) {
@@ -93,7 +93,7 @@ module.exports = (function () {
 			sendJson(file, req, res);
 		});
 
-	router.route('/route/evening/:id')
+	router.route('/route/evening/:id.json')
 		.get(function(req, res) {
 			var file = __dirname + '/dist/api/v1/evening_routes.json';
 			sendOneRoute(file, req, res);
@@ -106,7 +106,7 @@ module.exports = (function () {
 			sendJson(file, req, res);
 	});
 
-	router.route('/route/meeting/:id')
+	router.route('/route/meeting/:id.json')
 		.get(function(req, res) {
 			var file = __dirname + '/dist/api/v1/meeting_routes.json';
 			sendOneRoute(file, req, res);

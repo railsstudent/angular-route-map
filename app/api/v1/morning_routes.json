@@ -5,7 +5,7 @@
 	      "name": "New Territory North",
 	      "description": "Tsuen Mun -> Yuen Long -> Science Park",
 	      "stop" : 3,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "Trend Plaza, Tuen Mun Hueng Sze Wui Road"
 	      	  ,"lat": 22.392008
 	      	  ,"lng" : 113.975700
@@ -27,7 +27,7 @@
 	      "name": "New Territory West",
 	      "description": "Tsing Yi -> Tsuen Wan -> Science Park",
 	      "stop" : 3,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "Tsing Yi MTR Station, Tsing Yi"
 	      		,"lat": 22.359888
 	      		,"lng" : 114.106665
@@ -49,7 +49,7 @@
 	      "name": "Kowloon West",
 	      "description": "Sham Shui Po -> Mei Foo Sun Chuen bridge -> Science Park",
 	      "stop" : 3,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "Cheung Sha Wan Road (Junction of Kwelin Street)"
 	      		,"lat" : 22.331083  
 				,"lng" : 114.161913
@@ -71,7 +71,7 @@
 	      "name": "Kowloon East",
 	      "description": "Tseung Kwan O -> Kwun Tong -> Science Park",	
 	      "stop" : 3,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "Po Yap Road, Tseung Kwan O MTR Station Exit B1" 
 				,"lat" : 22.306947
 				,"lng" : 114.259162
@@ -93,7 +93,7 @@
 	      "name": "Kowloon Tong",
 	      "description": "Hunghom -> Ho Man Tin -> Kowloon Tong -> Science Park",	
 	      "stop" : 4,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "TSL jewellery, Man Yue Street, Hunghom"
 	  			, "lat" : 22.308865 
 				, "lng" : 114.187708
@@ -120,7 +120,7 @@
 	      "name": "Hong Kong East",
 	      "description": "Siu Sai Wan -> Chai Wan ->  Quarry Bay -> Science Park",
 	      "stop" : 4,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "Island Resort, Siu Sai Wan" 
 	      		, "lat" : 22.266426 
 				, "lng" : 114.249924
@@ -147,7 +147,7 @@
 	      "name": "Hong Kong West",
 	      "description": "Wan Chai -> Sai Wan -> Science Park",
 	      "stop" : 3,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "China Travel Service (HK) Ltd. 130 Hennessy Road, Wanchai" 
 	      		, "lat" : 22.277342
 				, "lng" : 114.172872

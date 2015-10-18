@@ -33,7 +33,7 @@
 	      "name" : "New Territory West",
 	      "description" : "Science Park -> Tsuen Wan -> Tsing Yi",
 	      "stop" : 3,
-	      "stop_name" : [
+	      "stopName" : [
 			{ "name" : "10 Science Park W Ave, Tai Po" 
 				, "lat" : 22.425872 
 				, "lng" : 114.210443
@@ -56,7 +56,7 @@
 	      "name" : "Kowloon West",
 	      "description" : "Science Park -> Lai Chi Kok -> Mei Foo bridge -> Sham Shui Po",
 	      "stop" : 4,
-	      "stop_name" : [
+	      "stopName" : [
 			{ "name" : "10 Science Park W Ave, Tai Po"
 				, "lat" : 22.425872 
 				, "lng" : 114.210443 
@@ -84,7 +84,7 @@
 	      "name" : "Kowloon East",
 	      "description" : "Science Park -> Kwun Tong -> Tseung Kwan O",
 	      "stop" : 3,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "10 Science Park W Ave, Tai Po" 
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
@@ -107,7 +107,7 @@
 	      "name" : "Kowloon Tong",
 	      "description" : "Science Park -> Kowloon Tong -> Ho Man Tin -> Hung Hom",
 	      "stop" : 4,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "10 Science Park W Ave, Tai Po" 
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
@@ -135,7 +135,7 @@
 	      "name" : "Hong Kong East",
 	      "description": "Science Park -> Tai Koo -> Chai Wan -> Siu Sai Wan",
 	      "stop" : 4,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "10 Science Park W Ave, Tai Po"
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
@@ -163,7 +163,7 @@
 	      "name": "Hong Kong West",
 	      "description" : "Science Park -> Wan Chai -> Sai Wan", 
 	      "stop" : 3,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "10 Science Park W Ave, Tai Po"
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
@@ -186,7 +186,7 @@
 	      "name" : "Special Minivan (6:30 pm)",
 	      "description" : "Science Park -> Mong Kok -> Causeway Bay",
 	      "stop" : 3,
-	      "stop_name" : [
+	      "stopName" : [
 	      	{ "name" : "10 Science Park W Ave, Tai Po"
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443
@@ -209,7 +209,7 @@
 	      "name" : "Special Minivan (7:30 pm)",
 	      "description" : "Science Park -> Mong Kok -> Causeway Bay",
 	      "stop" : 3,
-	      "stop_name" : [
+	      "stopName" : [
 			{ "name" : "10 Science Park W Ave, Tai Po"
 	      		, "lat" : 22.425872 
 				, "lng" : 114.210443

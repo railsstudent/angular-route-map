@@ -18,7 +18,7 @@ app
 
   			// return a promise
   			getDayLatLngs : function _getDayLatLngs(id) {
-  				return Restangular.all('route/morning').get(id);
+  				return Restangular.all('route/morning').get(id + '.json');
   			},
 
         getDayRouteNames : function _getDayRouteNames() {
@@ -27,7 +27,7 @@ app
 
   			// return a promise
   			getNightLatLngs : function _getNightLatLngs(id) {
-  				return Restangular.all('route/evening').get(id);
+  				return Restangular.all('route/evening').get(id + '.json');
   			},
 
         getNightRouteNames : function _getNightRouteNames() {
@@ -36,7 +36,7 @@ app
 
         // return a promise
         getMeetingLatLngs : function _getMeetingLatLngs(id) {
-          return Restangular.all('route/meeting').get(id);
+          return Restangular.all('route/meeting').get(id + '.json');
         },
 
         getMeetingRouteNames : function _getMeetingRouteNames() {

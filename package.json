@@ -1,7 +1,7 @@
 {
   "name": "angularroutemap",
   "description": "Shuttle Bus Routing Application",
-  "version": "0.0.3",
+  "version": "0.0.8",
   "repository": {
     "type": "git",
     "url": "https://github.com/railsstudent/angular-route-map.git"

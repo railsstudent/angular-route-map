@@ -18,7 +18,7 @@
     'ui.router',
     'ui.bootstrap',
     'restangular',
-    'google-maps',
+    'uiGmapgoogle-maps',
     'ngAutocomplete',
     'ui.sortable'
   ]);
@@ -33,22 +33,22 @@
 
       // state provider
       $stateProvider
-        .state('main', 
-            { 
+        .state('main',
+            {
               url: '/main',
               templateUrl: 'views/main.html',
               controller: 'MainCtrl'
             })
-         .state('morning_route', 
-            { 
+         .state('morning_route',
+            {
               url: '/morning_route',
               templateUrl: 'views/route.html',
-              resolve: { 
+              resolve: {
                   routes:  ['Restangular', function(Restangular) {
                     return Restangular.all('route/morning').getList().then(
                       function(data) {
                         return data;
-                      }, 
+                      },
                       function(err) {
                         console.log(err);
                         return [];
@@ -60,22 +60,22 @@
               controller: 'RouteCtrl'
             })
 // http://stackoverflow.com/questions/20866931/ui-router-nested-route-controller-isnt-being-called
-        .state('route_map', 
-          { 
+        .state('route_map',
+          {
             url: '/:routeType/route_map/:shiftName/:routeId',
             templateUrl: 'views/route_map.html',
             controller: 'RouteMapCtrl'
           })
-        .state('evening_route', 
-          { 
+        .state('evening_route',
+          {
             url: '/evening_route',
             templateUrl: 'views/route.html',
-            resolve: { 
+            resolve: {
                   routes:  ['Restangular', function(Restangular) {
                     return Restangular.all('route/evening').getList().then(
                       function(data) {
                         return data;
-                      }, 
+                      },
                       function(err) {
                         console.log(err);
                         return [];
@@ -86,16 +86,16 @@
                 },
             controller: 'RouteCtrl'
           })
-          .state('meeting_route', 
-            { 
+          .state('meeting_route',
+            {
               url: '/meeting_route',
               templateUrl: 'views/route.html',
-              resolve: { 
+              resolve: {
                   routes:  ['Restangular', function(Restangular) {
                     return Restangular.all('route/meeting').getList().then(
                       function(data) {
                         return data;
-                      }, 
+                      },
                       function(err) {
                         console.log(err);
                         return [];
@@ -106,8 +106,8 @@
                 },
               controller: 'RouteCtrl'
             })
-        .state('create_route', 
-          { 
+        .state('create_route',
+          {
             url: '/create_route',
             templateUrl: 'views/create_route.html',
             controller: 'CreateRouteCtrl'
@@ -127,7 +127,7 @@
           var extractedData = data;
             // .. to look for getList operations
           if (operation === 'getList') {
-            if (_.isEqual(what, 'route/evening') || 
+            if (_.isEqual(what, 'route/evening') ||
                 _.isEqual(what, 'route/morning') ||
                 _.isEqual(what, 'route/names/morning') ||
                 _.isEqual(what, 'route/names/evening') ||
@@ -140,8 +140,3 @@
     });
 
   });
-
-   
-
-
- 

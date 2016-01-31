@@ -6,14 +6,14 @@
   			<alert  ng-show="errMsg" type="danger" close="closeAlert()">{{errMsg}}</alert>
 
 			<label for="selectShift">Select Shift:&nbsp;&nbsp;&nbsp;</label>
-			<select class="form-control nullable" 
+			<select class="form-control nullable"
 				ng-model="dropDownOptions.selectedShift"
 				ng-options="shift for shift in dropDownOptions.shifts"
 				ng-change="chooseShift(dropDownOptions.selectedShift)" ng-disabled="true">
 				<option value=""></option>
 			</select>
 			<label for="selectRoute">Select Route:&nbsp;&nbsp;&nbsp;</label>
-			<select class="form-control" 
+			<select class="form-control"
 				ng-disabled="dropDownOptions.disabled"
 				ng-model="dropDownOptions.selectedRoute"
 				ng-change="chooseRoute(dropDownOptions.selectedRoute.id)"
@@ -25,10 +25,10 @@
 	</form>
 	<div class="row">
 		<div class="col-md-8">
-			<google-map center="map.center" zoom="map.zoom" control="map.control" options="map.options"  draggable="true"></google-map>
+			<ui-gmap-google-map center="map.center" zoom="map.zoom" control="map.control" options="map.options"  draggable="true"></ui-gmap-google-map>
 		</div>
 		<div class="col-md-4">
 			<div id="directionsPanel" class="directions_panel"></div>
 		</div>
-	</div>	
+	</div>
 </div>

@@ -16,7 +16,7 @@ var app = angular.module('routeMapController', []);
 app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
 
       $scope.title = title;
-      $scope.routes = routes;  
+      $scope.routes = routes;
       $scope.config = {
           prefix : prefix,
           showStopsText : 'Show Stops',
@@ -34,14 +34,14 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
             $scope.showButton[rowIdx].text = $scope.config.showStopsText;
         }
         $scope.showButton[rowIdx].collapse = !$scope.showButton[rowIdx].collapse;
-      }; 
+      };
 
       $scope.gotoRoute = function _gotoRoute(routeId) {
         $state.go('route_map', { shiftName : prefix.shiftName, routeId : routeId, routeType : prefix.routeType } );
       };
     })
   .controller('MainCtrl', function($scope, $location, $anchorScroll) {
-      
+
       $scope.scrollToElement = function(elemId) {
           // set the location.hash to the id of
           // the element you wish to scroll to.
@@ -50,19 +50,19 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
       };
 
       var githubBaseUrl = function _ghBaseUrl() {
-            return $location.protocol() + '://' + $location.host() + ':' + 
-              $location.port() + '/vendor/github-btn.html?';        
+            return $location.protocol() + '://' + $location.host() + ':' +
+              $location.port() + '/vendor/github-btn.html?';
       };
 
-      $scope.githubStarButton = function _gitBtnFullUrl() { 
+      $scope.githubStarButton = function _gitBtnFullUrl() {
             return githubBaseUrl() + 'user=railsstudent&repo=angular-route-map&type=watch';
       };
 
-      $scope.githubFollowButton = function _gitBtnFullUrl() { 
+      $scope.githubFollowButton = function _gitBtnFullUrl() {
             return githubBaseUrl() + 'user=railsstudent&type=follow';
       };
 
-      $scope.githubForkButton = function _gitBtnFullUrl() { 
+      $scope.githubForkButton = function _gitBtnFullUrl() {
             return githubBaseUrl() + 'user=railsstudent&repo=angular-route-map&type=fork';
       };
 
@@ -79,10 +79,10 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
         var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
         directionsDisplay.setPanel(document.getElementById('directionsPanel'));
-      
+
         $scope.map = {
             center: {
-                latitude: 22.3910, 
+                latitude: 22.3910,
                 longitude: 114.0878
             },
             zoom: 12,
@@ -102,7 +102,7 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
         };
 
         $scope.errMsg = '';
-        
+
         var errorCallback = function _errorCallback(err) {
           console.log(err);
           $scope.dropDownOptions.routeArray = [];
@@ -116,12 +116,12 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
           $scope.dropDownOptions.routeArray = filteredResult;
 
           $scope.dropDownOptions.selectedLatlngs = null;
-          $scope.dropDownOptions.disabled = true;                
+          $scope.dropDownOptions.disabled = true;
           $scope.errMsg = '';
 
           if (_.isNull(filteredResult)) {
             filteredResult = [];
-          } 
+          }
           if (_.isEmpty(filteredResult) === false) {
 
              var intId = $stateParams.routeId > 0 ? $stateParams.routeId : filteredResult[0].id;
@@ -130,11 +130,11 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
             if (_.isEqual($scope.dropDownOptions.selectedShift, 'Day')) {
               selectedRoute = RouteService.getDayLatLngs(intId);
             } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Night')) {
-              selectedRoute = RouteService.getNightLatLngs(intId);              
+              selectedRoute = RouteService.getNightLatLngs(intId);
             } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Meeting')) {
-              selectedRoute = RouteService.getMeetingLatLngs(intId);              
+              selectedRoute = RouteService.getMeetingLatLngs(intId);
             }
-            
+
             if (!_.isNull(selectedRoute)) {
               selectedRoute.then(function(resultRoute){
                 if (_.isUndefined(resultRoute)) {
@@ -153,7 +153,7 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
         };
 
         $scope.closeAlert = function _closeAlert() {
-          $scope.errMsg = "";
+          $scope.errMsg = '';
         };
 
         var getRouteInfo = function(promise) {
@@ -178,9 +178,9 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
                 _.forEach(selectedLatLngs, function(obj, index) {
                   if (index >= 1 && index < size - 1) {
                     waypts.push(
-                      { 
-                        location : new google.maps.LatLng(obj.lat, obj.lng), 
-                        stopover : true 
+                      {
+                        location : new google.maps.LatLng(obj.lat, obj.lng),
+                        stopover : true
                       });
                   }
                 }, waypts);
@@ -207,15 +207,15 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
             if (_.isEqual($scope.dropDownOptions.selectedShift, 'Day')) {
               selectedRoute = RouteService.getDayLatLngs(intId);
             } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Night')) {
-              selectedRoute = RouteService.getNightLatLngs(intId);              
+              selectedRoute = RouteService.getNightLatLngs(intId);
             } else if (_.isEqual($scope.dropDownOptions.selectedShift, 'Meeting')) {
-              selectedRoute = RouteService.getMeetingLatLngs(intId);              
+              selectedRoute = RouteService.getMeetingLatLngs(intId);
             }
             if (_.isNull(selectedRoute)) {
               $scope.dropDownOptions.selectedLatlngs = null;
             } else {
               selectedRoute.then(function(resultRoute) {
-                $scope.dropDownOptions.selectedLatlngs = resultRoute.stopName;  
+                $scope.dropDownOptions.selectedLatlngs = resultRoute.stopName;
                 calRoute();
               });
             }
@@ -234,10 +234,10 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
               getRouteInfo(RouteService.getNightRouteNames());
             } else if (_.isEqual('Meeting', shiftName)) {
               getRouteInfo(RouteService.getMeetingRouteNames());
-            } 
+            }
           };
 
-        $scope.chooseShift($scope.dropDownOptions.selectedShift);  
+        $scope.chooseShift($scope.dropDownOptions.selectedShift);
 
       })
   .controller('CreateRouteCtrl', function($scope) {
@@ -254,15 +254,15 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
         var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
         directionsDisplay.setPanel(document.getElementById('directionsPanel'));
-      
+
         $scope.routes = [];
-        $scope.sciencePark =  { 'name' : '10 Science Park W Ave' }; 
+        $scope.sciencePark =  { 'name' : '10 Science Park W Ave' };
         $scope.fullRoutes = [];
         $scope.myMarkers = [];
 
         $scope.map = {
             center: {
-                latitude: 22.3910, 
+                latitude: 22.3910,
                 longitude: 114.0878
             },
             zoom: 12,
@@ -273,7 +273,7 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
         };
 
         $scope.options = {
-          types : 'geocode', 
+          types : 'geocode',
           country: 'hk',
           watchEnter : false
         };
@@ -301,7 +301,7 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
         };
 
         var splitBatches =  function _splitBatches() {
-          
+
           $scope.fullRoutes = _.clone($scope.routes, true);
           $scope.fullRoutes.push($scope.sciencePark);
 
@@ -322,16 +322,16 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
                   });
                   if (_.isEqual(subitemsCounter, itemsPerBatch)) {
                       break;
-                   }   
+                   }
               }
 
               itemsCounter += subitemsCounter;
               batches.push(subBatch);
               wayptsExist = itemsCounter < $scope.fullRoutes.length;
-              // If it runs again there are still points. Minus 1 before continuing to 
+              // If it runs again there are still points. Minus 1 before continuing to
               // start up with end of previous tour leg
               itemsCounter--;
-          }  
+          }
           return batches;
         };
 
@@ -340,18 +340,18 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
           _.each($scope.myMarkers, function(m) {
             m.setMap(null);
           });
-          $scope.myMarkers = [];  
+          $scope.myMarkers = [];
         };
 
         var stepDisplay = new google.maps.InfoWindow();
         var createCustomMarker = function _createMarker(position, gmap, number, address_name) {
-           
+
             var icon = 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + number + '|FF0000|000000';
             var marker = new google.maps.Marker({
-                                    position: position, 
+                                    position: position,
                                     map: gmap,
                                     icon: icon
-                              }); 
+                              });
 
             google.maps.event.addListener(marker, 'click', function() {
               // Open an info window when the marker is clicked on,
@@ -371,20 +371,20 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
 
               // add marker for start
               var firstLeg = _.first(legArray);
-              marker = createCustomMarker(firstLeg.start_location, gmap, 1, firstLeg.start_address); 
-              $scope.myMarkers.push(marker);    
+              marker = createCustomMarker(firstLeg.start_location, gmap, 1, firstLeg.start_address);
+              $scope.myMarkers.push(marker);
 
               if (numElement > 1) {
                 _.each(legArray, function(leg, idx) {
-                    marker = createCustomMarker(leg.end_location, gmap, idx + 2, leg.end_address); 
-                    $scope.myMarkers.push(marker);  
+                    marker = createCustomMarker(leg.end_location, gmap, idx + 2, leg.end_address);
+                    $scope.myMarkers.push(marker);
                 });
               }
 
               // add marker for destination
               var lastLeg = _.last(legArray);
               marker = createCustomMarker(lastLeg.end_location, gmap, numElement + 1, lastLeg.end_address);
-              $scope.myMarkers.push(marker);  
+              $scope.myMarkers.push(marker);
           }
         };
 
@@ -399,7 +399,7 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
               directionsDisplay.setMap(gmap);
 
               var batches = splitBatches();
-       
+
               // now we should have a 2 dimensional array with a list of a list of waypoints
               var combinedResults;
               var unsortedResults = [{}]; // to hold the counter and the results themselves as they come back, to later sort
@@ -422,17 +422,17 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
                       waypoints: waypts,
                       travelMode: window.google.maps.TravelMode.DRIVING
                   };
-                  
+
                   (function (kk) {
                     directionsService.route(request, function (result, status) {
                       if (_.isEqual(status, window.google.maps.DirectionsStatus.OK)) {
 
                         var unsortedResult = { order: kk, result: result };
                         unsortedResults.push(unsortedResult);
-                                
+
                         directionsResultsReturned++;
                         if (_.isEqual(directionsResultsReturned, batches.length)) {// we've received all the results. put to map
-                  
+
                           // sort the returned values into their correct order
                           unsortedResults.sort(function (a, b) { return parseFloat(a.order) - parseFloat(b.order); });
                           var count = 0;
@@ -443,8 +443,8 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
                                       if (_.isEqual(count, 0)) { // first results. new up the combinedResults object
                                           combinedResults = unsortedResults[key].result;
                                       } else {
-                                          // only building up legs, overview_path, and bounds in my consolidated object. 
-                                          // This is not a complete 
+                                          // only building up legs, overview_path, and bounds in my consolidated object.
+                                          // This is not a complete
                                           // directionResults object, but enough to draw a path on the map, which is all I need
                                           combinedResults.routes[0].legs = combinedResults.routes[0].legs.concat(
                                                                               unsortedResults[key].result.routes[0].legs);
@@ -462,7 +462,7 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
 
                           // add custom marker
                           if (_.isArray(combinedResults.routes)) {
-                            if (_.isObject(combinedResults.routes[0])) { 
+                            if (_.isObject(combinedResults.routes[0])) {
                               addCustomMarkers(combinedResults.routes[0].legs, gmap);
                             }
                           }
@@ -470,7 +470,7 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
                           directionsDisplay.setDirections(combinedResults);
                         }
                       }
-                  })   // directionsService.route
+                  });   // directionsService.route
                 }) (k);
               } // for k
             }  // end if

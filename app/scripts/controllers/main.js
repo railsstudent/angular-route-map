@@ -25,7 +25,9 @@ app.controller('RouteCtrl', function ($scope, routes, title, prefix, $state) {
       };
 
       $scope.showButton = [];
-      _(routes.length).times(function() { $scope.showButton.push( { text: $scope.config.showStopsText, collapse: true } ); });
+      _.times(routes.length, function() {
+        $scope.showButton.push( { text: $scope.config.showStopsText, collapse: true } );
+      });
 
       $scope.setShowButtonText = function(rowIdx) {
         if (_.isEqual($scope.showButton[rowIdx].text, $scope.config.showStopsText)) {
